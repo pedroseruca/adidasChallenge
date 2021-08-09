@@ -99,12 +99,11 @@
 		12C6833526C1ABF900C1597E /* AdidasChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				12C6836726C1E87300C1597E /* SupportingFiles */,
 				12C6836126C1E09B00C1597E /* Models */,
 				12C6833626C1ABF900C1597E /* AdidasChallengeApp.swift */,
 				12C6833826C1ABF900C1597E /* ContentView.swift */,
-				12C6833A26C1ABFB00C1597E /* Assets.xcassets */,
 				12C6833F26C1ABFB00C1597E /* Info.plist */,
-				12C6833C26C1ABFB00C1597E /* Preview Content */,
 			);
 			path = AdidasChallenge;
 			sourceTree = "<group>";
@@ -142,6 +141,15 @@
 				12C6836426C1E28200C1597E /* ProductReview.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		12C6836726C1E87300C1597E /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				12C6833A26C1ABFB00C1597E /* Assets.xcassets */,
+				12C6833C26C1ABFB00C1597E /* Preview Content */,
+			);
+			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -434,7 +442,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"AdidasChallenge/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"AdidasChallenge/SupportingFiles/Preview Content\"";
 				DEVELOPMENT_TEAM = M3FQH2799X;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = AdidasChallenge/Info.plist;
@@ -456,7 +464,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"AdidasChallenge/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"AdidasChallenge/SupportingFiles/Preview Content\"";
 				DEVELOPMENT_TEAM = M3FQH2799X;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = AdidasChallenge/Info.plist;
