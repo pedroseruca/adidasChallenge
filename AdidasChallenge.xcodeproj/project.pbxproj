@@ -99,8 +99,7 @@
 		12C6833526C1ABF900C1597E /* AdidasChallenge */ = {
 			isa = PBXGroup;
 			children = (
-				12C6833626C1ABF900C1597E /* AdidasChallengeApp.swift */,
-				12C6833826C1ABF900C1597E /* InitialView.swift */,
+				12C6836B26C1EE0200C1597E /* Scenes */,
 				12C6836126C1E09B00C1597E /* Models */,
 				12C6836726C1E87300C1597E /* SupportingFiles */,
 			);
@@ -150,6 +149,15 @@
 				12C6833C26C1ABFB00C1597E /* Preview Content */,
 			);
 			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		12C6836B26C1EE0200C1597E /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				12C6833626C1ABF900C1597E /* AdidasChallengeApp.swift */,
+				12C6833826C1ABF900C1597E /* InitialView.swift */,
+			);
+			path = Scenes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
