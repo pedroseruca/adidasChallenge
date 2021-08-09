@@ -11,7 +11,7 @@ import SwiftUI
 struct AdidasChallengeApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            InitialView(products: [])
         }
     }
 }

@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		12C6833726C1ABF900C1597E /* AdidasChallengeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C6833626C1ABF900C1597E /* AdidasChallengeApp.swift */; };
-		12C6833926C1ABF900C1597E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C6833826C1ABF900C1597E /* ContentView.swift */; };
 		12C6833B26C1ABFB00C1597E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12C6833A26C1ABFB00C1597E /* Assets.xcassets */; };
 		12C6833E26C1ABFB00C1597E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12C6833D26C1ABFB00C1597E /* Preview Assets.xcassets */; };
 		12C6834926C1ABFC00C1597E /* AdidasChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C6834826C1ABFC00C1597E /* AdidasChallengeTests.swift */; };
 		12C6835426C1ABFC00C1597E /* AdidasChallengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C6835326C1ABFC00C1597E /* AdidasChallengeUITests.swift */; };
 		12C6836326C1E0C500C1597E /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C6836226C1E0C400C1597E /* Product.swift */; };
 		12C6836526C1E28200C1597E /* ProductReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C6836426C1E28200C1597E /* ProductReview.swift */; };
+		12C6836626C1E42A00C1597E /* InitialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C6833826C1ABF900C1597E /* InitialView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +37,7 @@
 /* Begin PBXFileReference section */
 		12C6833326C1ABF900C1597E /* AdidasChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdidasChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12C6833626C1ABF900C1597E /* AdidasChallengeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdidasChallengeApp.swift; sourceTree = "<group>"; };
-		12C6833826C1ABF900C1597E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		12C6833826C1ABF900C1597E /* InitialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialView.swift; sourceTree = "<group>"; };
 		12C6833A26C1ABFB00C1597E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		12C6833D26C1ABFB00C1597E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		12C6833F26C1ABFB00C1597E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -102,8 +102,8 @@
 				12C6836726C1E87300C1597E /* SupportingFiles */,
 				12C6836126C1E09B00C1597E /* Models */,
 				12C6833626C1ABF900C1597E /* AdidasChallengeApp.swift */,
-				12C6833826C1ABF900C1597E /* ContentView.swift */,
 				12C6833F26C1ABFB00C1597E /* Info.plist */,
+				12C6833826C1ABF900C1597E /* InitialView.swift */,
 			);
 			path = AdidasChallenge;
 			sourceTree = "<group>";
@@ -282,8 +282,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				12C6836326C1E0C500C1597E /* Product.swift in Sources */,
+				12C6836626C1E42A00C1597E /* InitialView.swift in Sources */,
 				12C6836526C1E28200C1597E /* ProductReview.swift in Sources */,
-				12C6833926C1ABF900C1597E /* ContentView.swift in Sources */,
 				12C6833726C1ABF900C1597E /* AdidasChallengeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

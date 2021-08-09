@@ -7,7 +7,7 @@
 
 // MARK: - Product
 
-struct Product: Codable {
+struct Product: Codable, Identifiable {
     let id: String
     let name: String
     let description: String
