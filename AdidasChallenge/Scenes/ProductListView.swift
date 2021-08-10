@@ -7,20 +7,32 @@
 
 import SwiftUI
 
-struct InitialView: View {
+struct ProductListView: View {
     let products: Products
 
     var body: some View {
-        List(products) { product in
-            
-        }
         
+        List(products) { product in
+            Image(product.imgUrl)
+                .resizable()
+                .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: 100)
+
+        }
+//        let imageLoader = ImageLoader(for: URL(string: "https://assets.adidas.com/images/w_320,h_320,f_auto,q_auto:sensitive,fl_lossy/c93fa315d2f64775ac1fab96016f09d1_9366/Dame_6_Shoes_Black_FV8624_01_standard.jpg")!)
+//        AsyncImage(imageLoader: imageLoader) {
+//            ProgressView()
+//        } image: { image in
+//            Image(uiImage: image)
+//        } error: { error in
+//            Image("NoImageAvailable")
+//        }
+
     }
 }
 
 struct InitialView_Previews: PreviewProvider {
     static var previews: some View {
-        InitialView(products: mockProducts)
+        ProductListView(products: mockProducts)
     }
 }
 
