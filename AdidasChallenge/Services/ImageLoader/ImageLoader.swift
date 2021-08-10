@@ -9,6 +9,7 @@ import Combine
 import UIKit
 
 enum ImageLoaderError: Error {
+    case urlNotValid
     case couldntTransformData
 }
 
@@ -26,14 +27,19 @@ protocol ImageLoaderProtocol: ObservableObject {
 class ImageLoader: ImageLoaderProtocol {    
     @Published var state: ImageLoaderState?
 
-    private let url: URL
+    private let url: URL?
     private var cancellable: AnyCancellable?
 
-    init(for url: URL) {
+    init(for url: URL?) {
         self.url = url
     }
 
     func load() {
+        guard let url = url else {
+            state = .failure(ImageLoaderError.urlNotValid)
+            return
+        }
+        
         // TODO: check cache before start request
         state = .loading
         cancellable = URLSession.shared.dataTaskPublisher(for: url)
