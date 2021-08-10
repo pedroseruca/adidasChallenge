@@ -11,12 +11,10 @@ struct ProductListView: View {
     let products: Products
 
     var body: some View {
-        
         List(products) { product in
-            Image(product.imgUrl)
-                .resizable()
-                .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: 100)
-
+            // TODO: To be passed from father VM
+            let viewModel = ProductCellViewModel(product: product)
+            ProductCell(viewModel: viewModel)
         }
     }
 }
@@ -26,7 +24,6 @@ struct InitialView_Previews: PreviewProvider {
         ProductListView(products: mockProducts)
     }
 }
-
 
 private extension InitialView_Previews {
     private static let mockProducts = [

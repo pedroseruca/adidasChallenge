@@ -17,6 +17,8 @@
 		12C6836626C1E42A00C1597E /* ProductListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C6833826C1ABF900C1597E /* ProductListView.swift */; };
 		12C6836E26C1F4A900C1597E /* AsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C6836D26C1F4A900C1597E /* AsyncImage.swift */; };
 		12C6837226C28E1F00C1597E /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C6837126C28E1F00C1597E /* ImageLoader.swift */; };
+		12C6837426C2D6C300C1597E /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C6837326C2D6C300C1597E /* ProductCell.swift */; };
+		12C6837726C31BFD00C1597E /* ProductCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C6837626C31BFD00C1597E /* ProductCellViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		12C6836426C1E28200C1597E /* ProductReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductReview.swift; sourceTree = "<group>"; };
 		12C6836D26C1F4A900C1597E /* AsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImage.swift; sourceTree = "<group>"; };
 		12C6837126C28E1F00C1597E /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		12C6837326C2D6C300C1597E /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
+		12C6837626C31BFD00C1597E /* ProductCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCellViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +173,7 @@
 		12C6836C26C1F3EA00C1597E /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				12C6837526C31BE200C1597E /* ProductCell */,
 				12C6836D26C1F4A900C1597E /* AsyncImage.swift */,
 			);
 			path = Components;
@@ -188,6 +193,15 @@
 				12C6837126C28E1F00C1597E /* ImageLoader.swift */,
 			);
 			path = ImageLoader;
+			sourceTree = "<group>";
+		};
+		12C6837526C31BE200C1597E /* ProductCell */ = {
+			isa = PBXGroup;
+			children = (
+				12C6837326C2D6C300C1597E /* ProductCell.swift */,
+				12C6837626C31BFD00C1597E /* ProductCellViewModel.swift */,
+			);
+			path = ProductCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -321,9 +335,11 @@
 			files = (
 				12C6836326C1E0C500C1597E /* Product.swift in Sources */,
 				12C6836626C1E42A00C1597E /* ProductListView.swift in Sources */,
+				12C6837726C31BFD00C1597E /* ProductCellViewModel.swift in Sources */,
 				12C6837226C28E1F00C1597E /* ImageLoader.swift in Sources */,
 				12C6836E26C1F4A900C1597E /* AsyncImage.swift in Sources */,
 				12C6836526C1E28200C1597E /* ProductReview.swift in Sources */,
+				12C6837426C2D6C300C1597E /* ProductCell.swift in Sources */,
 				12C6833726C1ABF900C1597E /* AdidasChallengeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
