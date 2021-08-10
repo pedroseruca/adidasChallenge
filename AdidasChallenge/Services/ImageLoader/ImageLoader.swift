@@ -13,19 +13,33 @@ enum ImageLoaderError: Error {
     case couldntTransformData
 }
 
-enum ImageLoaderState {
+enum ImageLoaderState: Equatable {
+    case initial
     case loading
     case success(UIImage)
     case failure(Error)
+    
+    static func == (lhs: ImageLoaderState, rhs: ImageLoaderState) -> Bool {
+        switch (lhs, rhs) {
+        case (initial, initial),
+             (loading, loading),
+             (success, success),
+             (failure, failure):
+            return true
+            
+        default:
+            return false
+        }
+    }
 }
 
 protocol ImageLoaderProtocol: ObservableObject {
-    var state: ImageLoaderState? { get }
+    var state: ImageLoaderState { get }
     func load()
 }
 
 class ImageLoader: ImageLoaderProtocol {    
-    @Published var state: ImageLoaderState?
+    @Published var state: ImageLoaderState = .initial
 
     private let url: URL?
     private var cancellable: AnyCancellable?
@@ -35,6 +49,7 @@ class ImageLoader: ImageLoaderProtocol {
     }
 
     func load() {
+        if state != .initial { return }
         guard let url = url else {
             state = .failure(ImageLoaderError.urlNotValid)
             return

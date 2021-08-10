@@ -29,20 +29,19 @@ struct AsyncImage<Placeholder, ImageLoader>: View where
 
     var body: some View {
         content
-            .onAppear(perform: imageLoader.load)
+            .onAppear { imageLoader.load() }
     }
 
     private var content: some View {
         Group {
-            if let state = imageLoader.state {
-                switch state {
-                case .loading:
-                    placeholderBuilder()
-                case let .failure(error):
-                    errorBuilder(error)
-                case let .success(image):
-                    imageBuilder(image)
-                }
+            switch imageLoader.state {
+            case .initial,
+                 .loading:
+                placeholderBuilder()
+            case let .failure(error):
+                errorBuilder(error)
+            case let .success(image):
+                imageBuilder(image)
             }
         }
     }
@@ -50,7 +49,7 @@ struct AsyncImage<Placeholder, ImageLoader>: View where
 
 struct ProductImage_Previews: PreviewProvider {
     class MockImageLoader: ImageLoaderProtocol {
-        @Published var state: ImageLoaderState?
+        @Published var state: ImageLoaderState = .initial
 
         func load() {
             let image = UIImage(named: "Logo")!
