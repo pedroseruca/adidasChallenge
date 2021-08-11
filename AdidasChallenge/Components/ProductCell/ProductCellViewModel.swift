@@ -7,6 +7,10 @@
 
 import Foundation
 
+protocol ProductCellViewModelInitializer {
+    init(product: Product)
+}
+
 protocol ProductCellViewModelProtocol {
     associatedtype Loader: ImageLoaderProtocol
     
@@ -17,11 +21,11 @@ protocol ProductCellViewModelProtocol {
     var imageLoader: Loader { get }
 }
 
-class ProductCellViewModel: ProductCellViewModelProtocol {
+class ProductCellViewModel: ProductCellViewModelProtocol, ProductCellViewModelInitializer {
     
     private let product: Product
     
-    init(product: Product) {
+    required init(product: Product) {
         self.product = product
     }
     

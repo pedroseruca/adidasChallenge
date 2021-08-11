@@ -7,14 +7,20 @@
 
 import SwiftUI
 
-struct ProductListView: View {
-    let products: Products
+struct ProductListView<ViewModel>: View where
+    ViewModel: ProductListViewModelProtocol {
+    private let viewModel: ViewModel
+    
+    init(viewModel: ViewModel) {
+        self.viewModel = viewModel
+    }
 
     var body: some View {
-        List(products) { product in
-            // TODO: To be passed from father VM
-            let viewModel = ProductCellViewModel(product: product)
-            ProductCell(viewModel: viewModel)
+        List {
+            ForEach(viewModel.indices) { index in
+                let viewModel: ProductCellViewModel = viewModel.productCellViewModel(for: index)
+                ProductCell(viewModel: viewModel)
+            }
         }
         // SwiftUI weird separators not aligned
         .padding(.leading, -16)
@@ -22,8 +28,9 @@ struct ProductListView: View {
 }
 
 struct InitialView_Previews: PreviewProvider {
+    private static let viewModel = ProductListViewModel(products: mockProducts)
     static var previews: some View {
-        ProductListView(products: mockProducts)
+        ProductListView(viewModel: viewModel)
     }
 }
 
