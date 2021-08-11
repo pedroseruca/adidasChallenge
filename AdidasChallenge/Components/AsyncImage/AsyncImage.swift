@@ -10,19 +10,21 @@ import SwiftUI
 
 // TODO: Add Documentation. AsyncImage is natively for iOS15+ which is still in beta. This is an inspired class to help manage the load process of an image.
 
-struct AsyncImage<Placeholder, ImageLoader>: View where
+struct AsyncImage<Placeholder, ImageLoader, ImageView, NoImageView>: View where
     Placeholder: View,
+    ImageView: View,
+    NoImageView: View,
     ImageLoader: ImageLoaderProtocol {
     @ObservedObject private var imageLoader: ImageLoader
 
     private let placeholderBuilder: () -> Placeholder
-    private let imageBuilder: (UIImage) -> Image
-    private let errorBuilder: (Error) -> Image
+    private let imageBuilder: (UIImage) -> ImageView
+    private let errorBuilder: (Error) -> NoImageView
 
     init(imageLoader: ImageLoader,
          @ViewBuilder placeholder: @escaping () -> Placeholder,
-         @ViewBuilder image: @escaping (UIImage) -> Image,
-         @ViewBuilder error: @escaping (Error) -> Image) {
+         @ViewBuilder image: @escaping (UIImage) -> ImageView,
+         @ViewBuilder error: @escaping (Error) -> NoImageView) {
         self.imageLoader = imageLoader
         placeholderBuilder = placeholder
         imageBuilder = image

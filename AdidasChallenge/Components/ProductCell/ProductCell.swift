@@ -11,6 +11,8 @@ struct ProductCell<ViewModel>: View where
     ViewModel: ProductCellViewModelProtocol {
     private let viewModel: ViewModel
 
+    private let imageSize: CGFloat = 120
+    private let imageLeadingPadding: CGFloat = 10
     init(viewModel: ViewModel) {
         self.viewModel = viewModel
     }
@@ -19,14 +21,21 @@ struct ProductCell<ViewModel>: View where
         HStack {
             AsyncImage(imageLoader: viewModel.imageLoader) {
                 ProgressView()
+                    .frame(width: imageSize, height: imageSize)
+                    .scaleEffect(1.5)
             } image: { image in
                 Image(uiImage: image)
+                    .resizable()
+                    .frame(width: imageSize, height: imageSize)
             } error: { _ in
                 // TODO: Make a file for assets names
                 Image("NoImageAvailable")
             }
 
             VStack {
+                    .resizable()
+                    .frame(width: imageSize, height: imageSize)
+            }.padding(.leading, imageLeadingPadding)
                 Text(viewModel.name)
                 Text(viewModel.description)
                 Text(viewModel.price)
