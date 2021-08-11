@@ -58,16 +58,32 @@ struct ProductCell<ViewModel>: View where
 }
 
 struct ProductCell_Previews: PreviewProvider {
-    private static let mockProduct = Product(
+    static var previews: some View {
+        Group {
+            ProductCell(viewModel: viewModel1)
+                .previewLayout(.fixed(width: 400, height: 150))
+            ProductCell(viewModel: viewModel2)
+                .previewLayout(.fixed(width: 400, height: 150))
+        }
+    }
+}
+
+private extension ProductCell_Previews {
+    private static let viewModel1 = ProductCellViewModel(product: Product(
         id: "HI333",
         name: "Sapatos Forum 84 BB",
-        description: "Description Description Description Description",
+        description: "Description Description",
         currency: "$",
         price: 160,
         imgUrl: "https://assets.adidas.com/images/w_320,h_320,f_auto,q_auto:sensitive,fl_lossy/c7099422ccc14e44b406abec00ba6c96_9366/NMD_R1_V2_Shoes_Black_FY6862_01_standard.jpg"
-    )
-    private static let viewModel = ProductCellViewModel(product: mockProduct)
-    static var previews: some View {
-        ProductCell(viewModel: viewModel)
-    }
+    ))
+    
+    private static let viewModel2 = ProductCellViewModel(product: Product(
+        id: "HI333",
+        name: "Cassina pt",
+        description: "Description Description Description Description",
+        currency: "$",
+        price: 160,
+        imgUrl: "https://assets.adidas.com/images/w_276,h_276,f_auto,q_auto:sensitive,fl_lossy/da278c9c5e244068b32cac4d0125fedd_9366/FY2002_00_plp_standard.jpg"
+    ))
 }
