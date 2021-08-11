@@ -10,9 +10,12 @@ import SwiftUI
 struct ProductCell<ViewModel>: View where
     ViewModel: ProductCellViewModelProtocol {
     private let viewModel: ViewModel
-
+    // TODO: Make a file for styles
     private let imageSize: CGFloat = 120
+    private let padding: CGFloat = 5
     private let imageLeadingPadding: CGFloat = 10
+    private let imageCornerRadius: CGFloat = 5
+
     init(viewModel: ViewModel) {
         self.viewModel = viewModel
     }
@@ -27,19 +30,29 @@ struct ProductCell<ViewModel>: View where
                 Image(uiImage: image)
                     .resizable()
                     .frame(width: imageSize, height: imageSize)
+                    .cornerRadius(imageCornerRadius)
             } error: { _ in
                 // TODO: Make a file for assets names
                 Image("NoImageAvailable")
-            }
-
-            VStack {
                     .resizable()
                     .frame(width: imageSize, height: imageSize)
             }.padding(.leading, imageLeadingPadding)
+
+            VStack(alignment: .leading) {
                 Text(viewModel.name)
+                    .font(.title3)
+                    .fontWeight(.medium)
+                    .padding(padding)
                 Text(viewModel.description)
+                    .font(.subheadline)
+                    .padding(padding)
+
                 Text(viewModel.price)
+                    .font(.headline)
+                    .fontWeight(.medium)
+                    .padding(padding)
             }
+            Spacer()
         }
     }
 }

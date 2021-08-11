@@ -25,9 +25,9 @@ class ProductCellViewModel: ProductCellViewModelProtocol {
         self.product = product
     }
     
-    private(set) lazy var name = product.name
+    private(set) lazy var name = product.name.uppercased()
     private(set) lazy var description = product.description
-    private(set) lazy var price = "\(product.price)"
+    private(set) lazy var price = "\(product.price) " + product.currency
     
     private(set) lazy var imageLoader: ImageLoader = {
         let imgUrl = URL(string: product.imgUrl)

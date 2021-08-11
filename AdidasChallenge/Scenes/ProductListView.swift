@@ -16,6 +16,8 @@ struct ProductListView: View {
             let viewModel = ProductCellViewModel(product: product)
             ProductCell(viewModel: viewModel)
         }
+        // SwiftUI weird separators not aligned
+        .padding(.leading, -16)
     }
 }
 
