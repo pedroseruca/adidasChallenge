@@ -60,10 +60,10 @@ struct ProductCell<ViewModel>: View where
 struct ProductCell_Previews: PreviewProvider {
     private static let mockProduct = Product(
         id: "HI333",
-        name: "product",
-        description: "description",
+        name: "Sapatos Forum 84 BB",
+        description: "Description Description Description Description",
         currency: "$",
-        price: 4,
+        price: 160,
         imgUrl: "https://assets.adidas.com/images/w_320,h_320,f_auto,q_auto:sensitive,fl_lossy/c7099422ccc14e44b406abec00ba6c96_9366/NMD_R1_V2_Shoes_Black_FY6862_01_standard.jpg"
     )
     private static let viewModel = ProductCellViewModel(product: mockProduct)
