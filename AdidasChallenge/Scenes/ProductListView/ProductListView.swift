@@ -16,14 +16,16 @@ struct ProductListView<ViewModel>: View where
     }
 
     var body: some View {
-        List {
-            ForEach(viewModel.indices) { index in
-                let viewModel: ProductCellViewModel = viewModel.productCellViewModel(for: index)
-                ProductCell(viewModel: viewModel)
+        NavigationView {
+            List {
+                ForEach(viewModel.indices) { index in
+                    let viewModel: ProductCellViewModel = viewModel.productCellViewModel(for: index)
+                    ProductCell(viewModel: viewModel)
+                }
             }
+            // SwiftUI weird separators not aligned
+            .padding(.leading, -16)
         }
-        // SwiftUI weird separators not aligned
-        .padding(.leading, -16)
     }
 }
 
