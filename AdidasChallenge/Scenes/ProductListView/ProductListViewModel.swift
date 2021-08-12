@@ -7,12 +7,6 @@
 
 import Foundation
 
-protocol ProductListViewModelProtocol {
-    var indices: Range<Int> { get }
-    func productCellViewModel(for index: Int) -> ProductCellViewModelProtocol
-    func productDetailViewModel(for index: Int) -> ProductDetailViewModelProtocol
-}
-
 struct ProductListViewModel: ProductListViewModelProtocol {
     private let products: Products
 
