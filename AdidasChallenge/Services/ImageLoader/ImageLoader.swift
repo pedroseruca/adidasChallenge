@@ -26,7 +26,7 @@ class ImageLoader: ImageLoaderProtocol {
 
     func load(with imageWidth: Int?) {
         if state != .initial { return }
-        guard let url = makeUrl(for: imageWidth) else {
+        guard let url = transformUrl(with: imageWidth) else {
             state = .failure(ImageLoaderError.urlNotValid)
             return
         }
@@ -53,7 +53,7 @@ class ImageLoader: ImageLoaderProtocol {
             })
     }
 
-    private func makeUrl(for imageWidth: Int?) -> URL? {
+    private func transformUrl(with imageWidth: Int?) -> URL? {
         guard let imageWidth = imageWidth else { return URL(string: urlString) }
         let urlString = replaceSize(on: urlString,
                                     with: imageWidth)
