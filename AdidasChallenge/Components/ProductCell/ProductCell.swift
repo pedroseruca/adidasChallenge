@@ -37,20 +37,7 @@ struct ProductCell: View {
                     .frame(width: imageSize, height: imageSize)
             }.padding(.leading, imageLeadingPadding)
 
-            VStack(alignment: .leading) {
-                Text(viewModel.name)
-                    .font(.title3)
-                    .fontWeight(.medium)
-                    .padding(padding)
-                Text(viewModel.description)
-                    .font(.subheadline)
-                    .padding(padding)
-
-                Text(viewModel.price)
-                    .font(.headline)
-                    .fontWeight(.medium)
-                    .padding(padding)
-            }
+            ProductCellInfoView(viewModel: viewModel)
             Spacer()
         }
     }
