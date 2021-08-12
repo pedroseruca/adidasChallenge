@@ -28,6 +28,12 @@
 		12C6838826C5C55000C1597E /* ProductCellViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C6838726C5C55000C1597E /* ProductCellViewModelProtocol.swift */; };
 		12C6838A26C5C5A900C1597E /* ProductListViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C6838926C5C5A900C1597E /* ProductListViewModelProtocol.swift */; };
 		12C6838C26C5C5F800C1597E /* ProductDetailViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C6838B26C5C5F800C1597E /* ProductDetailViewModelProtocol.swift */; };
+		12C6838F26C5C95900C1597E /* ProductReviewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C6838E26C5C95900C1597E /* ProductReviewsView.swift */; };
+		12C6839226C5C9B800C1597E /* ProductReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C6839126C5C9B800C1597E /* ProductReviewCell.swift */; };
+		12C6839426C5C9EA00C1597E /* ProductReviewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C6839326C5C9EA00C1597E /* ProductReviewCellViewModel.swift */; };
+		12C6839626C5C9FB00C1597E /* ProductReviewCellViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C6839526C5C9FB00C1597E /* ProductReviewCellViewModelProtocol.swift */; };
+		12C6839826C5CAF500C1597E /* ProductReviewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C6839726C5CAF500C1597E /* ProductReviewsViewModel.swift */; };
+		12C6839A26C5CB0100C1597E /* ProductReviewsViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C6839926C5CB0100C1597E /* ProductReviewsViewModelProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +81,12 @@
 		12C6838726C5C55000C1597E /* ProductCellViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCellViewModelProtocol.swift; sourceTree = "<group>"; };
 		12C6838926C5C5A900C1597E /* ProductListViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewModelProtocol.swift; sourceTree = "<group>"; };
 		12C6838B26C5C5F800C1597E /* ProductDetailViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewModelProtocol.swift; sourceTree = "<group>"; };
+		12C6838E26C5C95900C1597E /* ProductReviewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductReviewsView.swift; sourceTree = "<group>"; };
+		12C6839126C5C9B800C1597E /* ProductReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductReviewCell.swift; sourceTree = "<group>"; };
+		12C6839326C5C9EA00C1597E /* ProductReviewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductReviewCellViewModel.swift; sourceTree = "<group>"; };
+		12C6839526C5C9FB00C1597E /* ProductReviewCellViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductReviewCellViewModelProtocol.swift; sourceTree = "<group>"; };
+		12C6839726C5CAF500C1597E /* ProductReviewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductReviewsViewModel.swift; sourceTree = "<group>"; };
+		12C6839926C5CB0100C1597E /* ProductReviewsViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductReviewsViewModelProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +206,8 @@
 			children = (
 				12C6837826C3425700C1597E /* AsyncImage */,
 				12C6837526C31BE200C1597E /* ProductCell */,
+				12C6839026C5C99700C1597E /* ProductReviewCell */,
+				12C6838D26C5C93600C1597E /* ProductReviews */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -253,6 +267,26 @@
 				12C6838B26C5C5F800C1597E /* ProductDetailViewModelProtocol.swift */,
 			);
 			path = ProductView;
+			sourceTree = "<group>";
+		};
+		12C6838D26C5C93600C1597E /* ProductReviews */ = {
+			isa = PBXGroup;
+			children = (
+				12C6838E26C5C95900C1597E /* ProductReviewsView.swift */,
+				12C6839726C5CAF500C1597E /* ProductReviewsViewModel.swift */,
+				12C6839926C5CB0100C1597E /* ProductReviewsViewModelProtocol.swift */,
+			);
+			path = ProductReviews;
+			sourceTree = "<group>";
+		};
+		12C6839026C5C99700C1597E /* ProductReviewCell */ = {
+			isa = PBXGroup;
+			children = (
+				12C6839126C5C9B800C1597E /* ProductReviewCell.swift */,
+				12C6839326C5C9EA00C1597E /* ProductReviewCellViewModel.swift */,
+				12C6839526C5C9FB00C1597E /* ProductReviewCellViewModelProtocol.swift */,
+			);
+			path = ProductReviewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -386,14 +420,19 @@
 			files = (
 				12C6838C26C5C5F800C1597E /* ProductDetailViewModelProtocol.swift in Sources */,
 				12C6837E26C48D0200C1597E /* ProductDetailView.swift in Sources */,
+				12C6838F26C5C95900C1597E /* ProductReviewsView.swift in Sources */,
 				12C6838426C5C26100C1597E /* ImageLoaderError.swift in Sources */,
 				12C6836326C1E0C500C1597E /* Product.swift in Sources */,
 				12C6836626C1E42A00C1597E /* ProductListView.swift in Sources */,
+				12C6839826C5CAF500C1597E /* ProductReviewsViewModel.swift in Sources */,
 				12C6837726C31BFD00C1597E /* ProductCellViewModel.swift in Sources */,
 				12C6837226C28E1F00C1597E /* ImageLoader.swift in Sources */,
+				12C6839426C5C9EA00C1597E /* ProductReviewCellViewModel.swift in Sources */,
 				12C6838826C5C55000C1597E /* ProductCellViewModelProtocol.swift in Sources */,
+				12C6839226C5C9B800C1597E /* ProductReviewCell.swift in Sources */,
 				12C6836E26C1F4A900C1597E /* AsyncImage.swift in Sources */,
 				12C6838A26C5C5A900C1597E /* ProductListViewModelProtocol.swift in Sources */,
+				12C6839A26C5CB0100C1597E /* ProductReviewsViewModelProtocol.swift in Sources */,
 				12C6838026C48D1800C1597E /* ProductDetailViewModel.swift in Sources */,
 				12C6837B26C47E7C00C1597E /* ProductListViewModel.swift in Sources */,
 				12C6836526C1E28200C1597E /* ProductReview.swift in Sources */,
@@ -401,6 +440,7 @@
 				12C6838226C5641C00C1597E /* AsyncImageViewModel.swift in Sources */,
 				12C6837426C2D6C300C1597E /* ProductCell.swift in Sources */,
 				12C6833726C1ABF900C1597E /* AdidasChallengeApp.swift in Sources */,
+				12C6839626C5C9FB00C1597E /* ProductReviewCellViewModelProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
