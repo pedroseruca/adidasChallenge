@@ -57,6 +57,10 @@ struct ProductDetailView: View {
 struct ProductDetailView_Previews: PreviewProvider {
     static var previews: some View {
         ProductDetailView(viewModel: viewModel)
+
+        ProductDetailView(viewModel: viewModelNoImage)
+
+        ProductDetailView(viewModel: viewModelLoading)
     }
 }
 
@@ -69,10 +73,35 @@ private extension ProductDetailView_Previews {
         price: 160,
         imgUrl: "https://assets.adidas.com/images/w_320,h_320,f_auto,q_auto:sensitive,fl_lossy/c7099422ccc14e44b406abec00ba6c96_9366/NMD_R1_V2_Shoes_Black_FY6862_01_standard.jpg"
     )
+    static let product2 = Product(
+        id: "HI333",
+        name: "Sapatos Forum 84 BB",
+        description: "Description Description",
+        currency: "$",
+        price: 160,
+        imgUrl: ""
+    )
     private static let viewModel = makeViewModel(with: product)
+    private static let viewModelNoImage = makeViewModel(with: product2)
+    private static let viewModelLoading = makeViewModelLoading()
 }
 
 private extension ProductDetailView_Previews {
+    class MockImageLoader: ImageLoaderProtocol {
+        var statePublisher: Published<ImageLoaderState>.Publisher { $state }
+
+        @Published private var state: ImageLoaderState = .initial
+
+        func load(with imageWidth: Int?) {
+        }
+    }
+
+    static func makeViewModelLoading() -> ProductDetailViewModelProtocol {
+        let imageLoader = MockImageLoader()
+        return ProductDetailViewModel(product: product,
+                                      imageLoader: imageLoader)
+    }
+
     static func makeViewModel(with product: Product) -> ProductDetailViewModelProtocol {
         let imageLoader = ImageLoader(for: product.imgUrl)
         return ProductDetailViewModel(product: product,
