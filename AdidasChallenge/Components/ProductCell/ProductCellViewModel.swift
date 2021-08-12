@@ -5,16 +5,6 @@
 //  Created by Pedro Seruca on 10/08/2021.
 //
 
-import Foundation
-
-protocol ProductCellViewModelProtocol {
-    var name: String { get }
-    var description: String { get }
-    var price: String { get }
-
-    var imageViewModel: AsyncImageViewModel { get }
-}
-
 class ProductCellViewModel: ProductCellViewModelProtocol {
     private let product: Product
     private let imageLoader: ImageLoaderProtocol
