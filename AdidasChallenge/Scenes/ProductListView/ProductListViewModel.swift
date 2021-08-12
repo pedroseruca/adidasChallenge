@@ -24,16 +24,14 @@ struct ProductListViewModel: ProductListViewModelProtocol {
 
     func productCellViewModel(for index: Int) -> ProductCellViewModelProtocol {
         let product = products[index]
-        let imgUrl = URL(string: product.imgUrl)
-        let imageLoader = ImageLoader(for: imgUrl)
+        let imageLoader = ImageLoader(for: product.imgUrl)
         return ProductCellViewModel(product: product,
                                     imageLoader: imageLoader)
     }
     
     func productDetailViewModel(for index: Int) -> ProductDetailViewModelProtocol {
         let product = products[index]
-        let imgUrl = URL(string: product.imgUrl)
-        let imageLoader = ImageLoader(for: imgUrl)
+        let imageLoader = ImageLoader(for: product.imgUrl)
         return ProductDetailViewModel(product: product,
                                       imageLoader: imageLoader)
     }

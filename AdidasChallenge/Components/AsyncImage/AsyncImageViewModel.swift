@@ -10,12 +10,15 @@ import SwiftUI
 
 class AsyncImageViewModel: ObservableObject {
     private var imageLoader: ImageLoaderProtocol
+    private var imageWidth: Int?
 
     @Published private(set) var state: ImageLoaderState = .initial
     private var cancellable: AnyCancellable?
 
-    init(imageLoader: ImageLoaderProtocol) {
+    init(imageLoader: ImageLoaderProtocol,
+         imageWidth: Int? = nil) {
         self.imageLoader = imageLoader
+        self.imageWidth = imageWidth
 
         cancellable =
             imageLoader
@@ -27,6 +30,6 @@ class AsyncImageViewModel: ObservableObject {
     }
 
     func load() {
-        imageLoader.load()
+        imageLoader.load(with: imageWidth)
     }
 }

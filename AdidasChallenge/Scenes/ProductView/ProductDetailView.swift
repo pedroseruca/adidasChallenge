@@ -58,9 +58,8 @@ private extension ProductDetailView_Previews {
 
 private extension ProductDetailView_Previews {
     static func makeViewModel(with product: Product) -> ProductDetailViewModelProtocol {
-        let imgUrl = URL(string: product.imgUrl)
-        let imageLoader = ImageLoader(for: imgUrl)
+        let imageLoader = ImageLoader(for: product.imgUrl)
         return ProductDetailViewModel(product: product,
-                                    imageLoader: imageLoader)
+                                      imageLoader: imageLoader)
     }
 }

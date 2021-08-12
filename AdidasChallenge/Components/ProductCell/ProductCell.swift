@@ -98,8 +98,7 @@ private extension ProductCell_Previews {
 
 private extension ProductCell_Previews {
     static func makeViewModel(with product: Product) -> ProductCellViewModelProtocol {
-        let imgUrl = URL(string: product.imgUrl)
-        let imageLoader = ImageLoader(for: imgUrl)
+        let imageLoader = ImageLoader(for: product.imgUrl)
         return ProductCellViewModel(product: product,
                                     imageLoader: imageLoader)
     }

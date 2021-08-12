@@ -56,7 +56,7 @@ struct ProductImage_Previews: PreviewProvider {
 
         @Published private var state: ImageLoaderState = .initial
 
-        func load() {
+        func load(with imageWidth: Int?) {
             let image = UIImage(named: "Logo")!
             print(image)
             state = .success(image)
@@ -64,17 +64,21 @@ struct ProductImage_Previews: PreviewProvider {
     }
 
     static let imageLoader = MockImageLoader()
-    static let viewModel = AsyncImageViewModel(imageLoader: imageLoader)
     static var previews: some View {
-        AsyncImage(viewModel: viewModel,
-                   placeholder: {
-                       Text("loading")
-                   },
-                   image: { image in
-                       Image(uiImage: image)
-                   },
-                   error: { _ in
-                       Image("Logo")
-                   })
+        GeometryReader { geometry in
+            let width = geometry.size.width
+            let viewModel = AsyncImageViewModel(imageLoader: imageLoader,
+                                                imageWidth: Int(width))
+            AsyncImage(viewModel: viewModel,
+                       placeholder: {
+                           Text("loading")
+                       },
+                       image: { image in
+                           Image(uiImage: image)
+                       },
+                       error: { _ in
+                           Image("Logo")
+                       })
+        }
     }
 }

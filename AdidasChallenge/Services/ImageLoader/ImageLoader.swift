@@ -8,6 +8,7 @@
 import Combine
 import UIKit
 
+// TODO: Remove this to different file
 enum ImageLoaderError: Error {
     case urlNotValid
     case couldntTransformData
@@ -18,7 +19,7 @@ enum ImageLoaderState: Equatable {
     case loading
     case success(UIImage)
     case failure(Error)
-    
+
     static func == (lhs: ImageLoaderState, rhs: ImageLoaderState) -> Bool {
         switch (lhs, rhs) {
         case (initial, initial),
@@ -26,7 +27,7 @@ enum ImageLoaderState: Equatable {
              (success, success),
              (failure, failure):
             return true
-            
+
         default:
             return false
         }
@@ -35,27 +36,27 @@ enum ImageLoaderState: Equatable {
 
 protocol ImageLoaderProtocol {
     var statePublisher: Published<ImageLoaderState>.Publisher { get }
-    func load()
+    func load(with imageWidth: Int?)
 }
 
 class ImageLoader: ImageLoaderProtocol {
     var statePublisher: Published<ImageLoaderState>.Publisher { $state }
-    
+
     @Published private var state: ImageLoaderState = .initial
-    private let url: URL?
+    private let urlString: String
     private var cancellable: AnyCancellable?
 
-    init(for url: URL?) {
-        self.url = url
+    init(for urlString: String) {
+        self.urlString = urlString
     }
 
-    func load() {
+    func load(with imageWidth: Int?) {
         if state != .initial { return }
-        guard let url = url else {
+        guard let url = makeUrl(for: imageWidth) else {
             state = .failure(ImageLoaderError.urlNotValid)
             return
         }
-        
+
         // TODO: check cache before start request
         state = .loading
         cancellable = URLSession.shared.dataTaskPublisher(for: url)
@@ -76,5 +77,32 @@ class ImageLoader: ImageLoaderProtocol {
                     self?.state = .failure(ImageLoaderError.couldntTransformData)
                 }
             })
+    }
+
+    private func makeUrl(for imageWidth: Int?) -> URL? {
+        guard let imageWidth = imageWidth else { return URL(string: urlString) }
+        let urlString = replaceSize(on: urlString,
+                                    with: imageWidth)
+        return URL(string: urlString)
+    }
+
+    private func replaceSize(on urlString: String, with size: Int) -> String {
+        var copy = urlString
+        ["w_", "h_"].forEach { measure in
+            replace(measure: measure, with: size)
+        }
+
+        func replace(measure: String, with size: Int) {
+            if let range = copy.range(of: measure) {
+                let lowerRange = copy.index(before: copy.index(after: range.lowerBound))
+                let range = lowerRange ..< copy.endIndex
+
+                if let upperRange = copy.range(of: ",", range: range)?.lowerBound {
+                    copy.replaceSubrange(lowerRange ..< upperRange, with: measure + "\(size)")
+                }
+            }
+        }
+
+        return copy
     }
 }
