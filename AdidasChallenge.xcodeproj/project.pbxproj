@@ -20,6 +20,8 @@
 		12C6837426C2D6C300C1597E /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C6837326C2D6C300C1597E /* ProductCell.swift */; };
 		12C6837726C31BFD00C1597E /* ProductCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C6837626C31BFD00C1597E /* ProductCellViewModel.swift */; };
 		12C6837B26C47E7C00C1597E /* ProductListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C6837A26C47E7C00C1597E /* ProductListViewModel.swift */; };
+		12C6837E26C48D0200C1597E /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C6837D26C48D0200C1597E /* ProductDetailView.swift */; };
+		12C6838026C48D1800C1597E /* ProductDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C6837F26C48D1800C1597E /* ProductDetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 		12C6837326C2D6C300C1597E /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		12C6837626C31BFD00C1597E /* ProductCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCellViewModel.swift; sourceTree = "<group>"; };
 		12C6837A26C47E7C00C1597E /* ProductListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewModel.swift; sourceTree = "<group>"; };
+		12C6837D26C48D0200C1597E /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
+		12C6837F26C48D1800C1597E /* ProductDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +170,7 @@
 		12C6836B26C1EE0200C1597E /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				12C6837C26C48CEF00C1597E /* ProductView */,
 				12C6837926C47E6100C1597E /* ProductListView */,
 				12C6833626C1ABF900C1597E /* AdidasChallengeApp.swift */,
 			);
@@ -221,6 +226,15 @@
 				12C6837A26C47E7C00C1597E /* ProductListViewModel.swift */,
 			);
 			path = ProductListView;
+			sourceTree = "<group>";
+		};
+		12C6837C26C48CEF00C1597E /* ProductView */ = {
+			isa = PBXGroup;
+			children = (
+				12C6837D26C48D0200C1597E /* ProductDetailView.swift */,
+				12C6837F26C48D1800C1597E /* ProductDetailViewModel.swift */,
+			);
+			path = ProductView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -352,11 +366,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12C6837E26C48D0200C1597E /* ProductDetailView.swift in Sources */,
 				12C6836326C1E0C500C1597E /* Product.swift in Sources */,
 				12C6836626C1E42A00C1597E /* ProductListView.swift in Sources */,
 				12C6837726C31BFD00C1597E /* ProductCellViewModel.swift in Sources */,
 				12C6837226C28E1F00C1597E /* ImageLoader.swift in Sources */,
 				12C6836E26C1F4A900C1597E /* AsyncImage.swift in Sources */,
+				12C6838026C48D1800C1597E /* ProductDetailViewModel.swift in Sources */,
 				12C6837B26C47E7C00C1597E /* ProductListViewModel.swift in Sources */,
 				12C6836526C1E28200C1597E /* ProductReview.swift in Sources */,
 				12C6837426C2D6C300C1597E /* ProductCell.swift in Sources */,
