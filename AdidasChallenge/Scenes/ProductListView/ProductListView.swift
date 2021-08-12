@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProductListView: View {
     private let viewModel: ProductListViewModelProtocol
-    
+
     init(viewModel: ProductListViewModelProtocol) {
         self.viewModel = viewModel
     }
@@ -21,10 +21,10 @@ struct ProductListView: View {
                     let cellViewModel = viewModel.productCellViewModel(for: index)
                     let detailViewModel = viewModel.productDetailViewModel(for: index)
                     let productDetailView = ProductDetailView(viewModel: detailViewModel)
-                    NavigationLink(destination: productDetailView) {
+                    ZStack {
+                        NavigationLink(destination: productDetailView) {}.hidden()
                         ProductCell(viewModel: cellViewModel)
                     }
-                    
                 }
             }
             // SwiftUI weird separators not aligned
