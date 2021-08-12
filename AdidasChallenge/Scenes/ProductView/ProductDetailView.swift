@@ -15,26 +15,32 @@ struct ProductDetailView: View {
     }
 
     var body: some View {
-        VStack {
-            AsyncImage(viewModel: viewModel.imageViewModel) {
-                ProgressView()
-            } image: { image in
-                Image(uiImage: image)
-                    .padding()
-            } error: { _ in
-                Image("NoImageAvailable")
-            }
+        GeometryReader { geometry in
+            let width = geometry.size.width
 
-            VStack(alignment: .leading, spacing: 10) {
-                HStack {
-                    Text(viewModel.name)
-                    Spacer()
-                    Text(viewModel.price)
-                }
-                Text(viewModel.description)
-            }.padding(.all)
+            VStack {
+                AsyncImage(viewModel: viewModel.imageViewModel(for: Float(width))) {
+                    ProgressView()
+                } image: { image in
+                    Image(uiImage: image)
+                        .padding()
+                } error: { _ in
+                    Image("NoImageAvailable")
+                }.frame(width: width,
+                        height: width,
+                        alignment: /*@START_MENU_TOKEN@*/ .center/*@END_MENU_TOKEN@*/)
 
-        }.frame(maxHeight: /*@START_MENU_TOKEN@*/ .infinity/*@END_MENU_TOKEN@*/, alignment: .top)
+                VStack(alignment: .leading, spacing: 10) {
+                    HStack {
+                        Text(viewModel.name)
+                        Spacer()
+                        Text(viewModel.price)
+                    }
+                    Text(viewModel.description)
+                }.padding(.all)
+
+            }.frame(maxHeight: /*@START_MENU_TOKEN@*/ .infinity/*@END_MENU_TOKEN@*/, alignment: .top)
+        }
     }
 }
 

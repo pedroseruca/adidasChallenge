@@ -12,7 +12,7 @@ protocol ProductDetailViewModelProtocol {
     var description: String { get }
     var price: String { get }
 
-    var imageViewModel: AsyncImageViewModel { get }
+    func imageViewModel(for imageWidth: Float) -> AsyncImageViewModel
 }
 
 class ProductDetailViewModel: ProductDetailViewModelProtocol {
@@ -27,6 +27,9 @@ class ProductDetailViewModel: ProductDetailViewModelProtocol {
     private(set) lazy var name = product.name.uppercased()
     private(set) lazy var description = product.description
     private(set) lazy var price = "\(product.price) " + product.currency
-
-    private(set) lazy var imageViewModel = AsyncImageViewModel(imageLoader: imageLoader)
+    
+    func imageViewModel(for imageWidth: Float) -> AsyncImageViewModel {
+        .init(imageLoader: imageLoader,
+              imageWidth: Int(imageWidth))
+    }
 }
