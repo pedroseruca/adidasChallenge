@@ -21,14 +21,20 @@ struct ProductDetailView: View {
             VStack {
                 AsyncImage(viewModel: viewModel.imageViewModel(for: Float(width))) {
                     ProgressView()
+                        .frame(width: width, height: width)
+                        .scaleEffect(2)
                 } image: { image in
                     Image(uiImage: image)
-                        .padding()
+                        .frame(width: width,
+                               height: width,
+                               alignment: /*@START_MENU_TOKEN@*/ .center/*@END_MENU_TOKEN@*/)
                 } error: { _ in
                     Image("NoImageAvailable")
-                }.frame(width: width,
-                        height: width,
-                        alignment: /*@START_MENU_TOKEN@*/ .center/*@END_MENU_TOKEN@*/)
+                        .resizable()
+                        .frame(width: 300,
+                               height: 300,
+                               alignment: /*@START_MENU_TOKEN@*/ .center/*@END_MENU_TOKEN@*/)
+                }
 
                 VStack(alignment: .leading, spacing: 10) {
                     HStack {
