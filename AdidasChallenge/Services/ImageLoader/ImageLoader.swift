@@ -8,12 +8,6 @@
 import Combine
 import UIKit
 
-// TODO: Remove this to different file
-enum ImageLoaderError: Error {
-    case urlNotValid
-    case couldntTransformData
-}
-
 enum ImageLoaderState: Equatable {
     case initial
     case loading
