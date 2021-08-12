@@ -8,26 +8,6 @@
 import Combine
 import UIKit
 
-enum ImageLoaderState: Equatable {
-    case initial
-    case loading
-    case success(UIImage)
-    case failure(Error)
-
-    static func == (lhs: ImageLoaderState, rhs: ImageLoaderState) -> Bool {
-        switch (lhs, rhs) {
-        case (initial, initial),
-             (loading, loading),
-             (success, success),
-             (failure, failure):
-            return true
-
-        default:
-            return false
-        }
-    }
-}
-
 protocol ImageLoaderProtocol {
     var statePublisher: Published<ImageLoaderState>.Publisher { get }
     func load(with imageWidth: Int?)

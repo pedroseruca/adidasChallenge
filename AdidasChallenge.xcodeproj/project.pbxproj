@@ -24,6 +24,7 @@
 		12C6838026C48D1800C1597E /* ProductDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C6837F26C48D1800C1597E /* ProductDetailViewModel.swift */; };
 		12C6838226C5641C00C1597E /* AsyncImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C6838126C5641C00C1597E /* AsyncImageViewModel.swift */; };
 		12C6838426C5C26100C1597E /* ImageLoaderError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C6838326C5C26000C1597E /* ImageLoaderError.swift */; };
+		12C6838626C5C34300C1597E /* ImageLoaderState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C6838526C5C34300C1597E /* ImageLoaderState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		12C6837F26C48D1800C1597E /* ProductDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewModel.swift; sourceTree = "<group>"; };
 		12C6838126C5641C00C1597E /* AsyncImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageViewModel.swift; sourceTree = "<group>"; };
 		12C6838326C5C26000C1597E /* ImageLoaderError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderError.swift; sourceTree = "<group>"; };
+		12C6838526C5C34300C1597E /* ImageLoaderState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,6 +205,7 @@
 			children = (
 				12C6837126C28E1F00C1597E /* ImageLoader.swift */,
 				12C6838326C5C26000C1597E /* ImageLoaderError.swift */,
+				12C6838526C5C34300C1597E /* ImageLoaderState.swift */,
 			);
 			path = ImageLoader;
 			sourceTree = "<group>";
@@ -382,6 +385,7 @@
 				12C6838026C48D1800C1597E /* ProductDetailViewModel.swift in Sources */,
 				12C6837B26C47E7C00C1597E /* ProductListViewModel.swift in Sources */,
 				12C6836526C1E28200C1597E /* ProductReview.swift in Sources */,
+				12C6838626C5C34300C1597E /* ImageLoaderState.swift in Sources */,
 				12C6838226C5641C00C1597E /* AsyncImageViewModel.swift in Sources */,
 				12C6837426C2D6C300C1597E /* ProductCell.swift in Sources */,
 				12C6833726C1ABF900C1597E /* AdidasChallengeApp.swift in Sources */,
