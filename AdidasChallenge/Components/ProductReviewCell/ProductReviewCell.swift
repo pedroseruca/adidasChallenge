@@ -23,5 +23,6 @@ struct ProductReviewCell_Previews: PreviewProvider {
     private static let viewModel = ProductReviewCellViewModel()
     static var previews: some View {
         ProductReviewCell(viewModel: viewModel)
+            .previewLayout(.sizeThatFits)
     }
 }

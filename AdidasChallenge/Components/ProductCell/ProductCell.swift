@@ -47,9 +47,9 @@ struct ProductCell_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             ProductCell(viewModel: viewModel1)
-                .previewLayout(.fixed(width: 400, height: 150))
+                .previewLayout(.sizeThatFits)
             ProductCell(viewModel: viewModel2)
-                .previewLayout(.fixed(width: 400, height: 150))
+                .previewLayout(.sizeThatFits)
         }
     }
 }

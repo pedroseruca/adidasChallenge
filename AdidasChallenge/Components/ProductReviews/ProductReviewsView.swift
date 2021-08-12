@@ -25,5 +25,6 @@ struct ProductReviewsView_Previews: PreviewProvider {
     private static let viewModel = ProductReviewsViewModel()
     static var previews: some View {
         ProductReviewsView(viewModel: viewModel)
+            .previewLayout(.sizeThatFits)
     }
 }

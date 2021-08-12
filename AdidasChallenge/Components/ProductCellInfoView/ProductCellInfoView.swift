@@ -36,7 +36,7 @@ struct ProductCellInfoView: View {
 struct ProductCellInfoView_Previews: PreviewProvider {
     static var previews: some View {
         ProductCellInfoView(viewModel: viewModel)
-            .previewLayout(.fixed(width: 400, height: 150))
+            .previewLayout(.sizeThatFits)
     }
 }
 
