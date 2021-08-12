@@ -37,10 +37,14 @@ struct ProductDetailView: View {
                 }
 
                 VStack(alignment: .leading, spacing: 10) {
-                    HStack {
+                    HStack(alignment: .firstTextBaseline) {
                         Text(viewModel.name)
+                            .font(.title)
+                            .fontWeight(.medium)
                         Spacer()
                         Text(viewModel.price)
+                            .font(.title2)
+                        
                     }
                     Text(viewModel.description)
                 }.padding(.all)
