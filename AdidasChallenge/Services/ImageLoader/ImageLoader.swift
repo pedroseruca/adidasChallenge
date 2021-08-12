@@ -33,14 +33,15 @@ enum ImageLoaderState: Equatable {
     }
 }
 
-protocol ImageLoaderProtocol: ObservableObject {
-    var state: ImageLoaderState { get }
+protocol ImageLoaderProtocol {
+    var statePublisher: Published<ImageLoaderState>.Publisher { get }
     func load()
 }
 
-class ImageLoader: ImageLoaderProtocol {    
-    @Published var state: ImageLoaderState = .initial
-
+class ImageLoader: ImageLoaderProtocol {
+    var statePublisher: Published<ImageLoaderState>.Publisher { $state }
+    
+    @Published private var state: ImageLoaderState = .initial
     private let url: URL?
     private var cancellable: AnyCancellable?
 

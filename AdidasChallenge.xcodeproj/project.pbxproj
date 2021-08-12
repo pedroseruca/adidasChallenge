@@ -22,6 +22,7 @@
 		12C6837B26C47E7C00C1597E /* ProductListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C6837A26C47E7C00C1597E /* ProductListViewModel.swift */; };
 		12C6837E26C48D0200C1597E /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C6837D26C48D0200C1597E /* ProductDetailView.swift */; };
 		12C6838026C48D1800C1597E /* ProductDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C6837F26C48D1800C1597E /* ProductDetailViewModel.swift */; };
+		12C6838226C5641C00C1597E /* AsyncImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C6838126C5641C00C1597E /* AsyncImageViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		12C6837A26C47E7C00C1597E /* ProductListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewModel.swift; sourceTree = "<group>"; };
 		12C6837D26C48D0200C1597E /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
 		12C6837F26C48D1800C1597E /* ProductDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewModel.swift; sourceTree = "<group>"; };
+		12C6838126C5641C00C1597E /* AsyncImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				12C6836D26C1F4A900C1597E /* AsyncImage.swift */,
+				12C6838126C5641C00C1597E /* AsyncImageViewModel.swift */,
 			);
 			path = AsyncImage;
 			sourceTree = "<group>";
@@ -375,6 +378,7 @@
 				12C6838026C48D1800C1597E /* ProductDetailViewModel.swift in Sources */,
 				12C6837B26C47E7C00C1597E /* ProductListViewModel.swift in Sources */,
 				12C6836526C1E28200C1597E /* ProductReview.swift in Sources */,
+				12C6838226C5641C00C1597E /* AsyncImageViewModel.swift in Sources */,
 				12C6837426C2D6C300C1597E /* ProductCell.swift in Sources */,
 				12C6833726C1ABF900C1597E /* AdidasChallengeApp.swift in Sources */,
 			);

@@ -10,22 +10,21 @@ import SwiftUI
 
 // TODO: Add Documentation. AsyncImage is natively for iOS15+ which is still in beta. This is an inspired class to help manage the load process of an image.
 
-struct AsyncImage<Placeholder, ImageLoader, ImageView, NoImageView>: View where
+struct AsyncImage<Placeholder, ImageView, NoImageView>: View where
     Placeholder: View,
     ImageView: View,
-    NoImageView: View,
-    ImageLoader: ImageLoaderProtocol {
-    @ObservedObject private var imageLoader: ImageLoader
+    NoImageView: View {
+    @ObservedObject private var viewModel: AsyncImageViewModel
 
     private let placeholderBuilder: () -> Placeholder
     private let imageBuilder: (UIImage) -> ImageView
     private let errorBuilder: (Error) -> NoImageView
 
-    init(imageLoader: ImageLoader,
+    init(viewModel: AsyncImageViewModel,
          @ViewBuilder placeholder: @escaping () -> Placeholder,
          @ViewBuilder image: @escaping (UIImage) -> ImageView,
          @ViewBuilder error: @escaping (Error) -> NoImageView) {
-        self.imageLoader = imageLoader
+        self.viewModel = viewModel
         placeholderBuilder = placeholder
         imageBuilder = image
         errorBuilder = error
@@ -33,12 +32,12 @@ struct AsyncImage<Placeholder, ImageLoader, ImageView, NoImageView>: View where
 
     var body: some View {
         content
-            .onAppear { imageLoader.load() }
+            .onAppear { self.viewModel.load() }
     }
 
     private var content: some View {
         Group {
-            switch imageLoader.state {
+            switch viewModel.state {
             case .initial,
                  .loading:
                 placeholderBuilder()
@@ -53,7 +52,9 @@ struct AsyncImage<Placeholder, ImageLoader, ImageView, NoImageView>: View where
 
 struct ProductImage_Previews: PreviewProvider {
     class MockImageLoader: ImageLoaderProtocol {
-        @Published var state: ImageLoaderState = .initial
+        var statePublisher: Published<ImageLoaderState>.Publisher { $state }
+
+        @Published private var state: ImageLoaderState = .initial
 
         func load() {
             let image = UIImage(named: "Logo")!
@@ -63,8 +64,9 @@ struct ProductImage_Previews: PreviewProvider {
     }
 
     static let imageLoader = MockImageLoader()
+    static let viewModel = AsyncImageViewModel(imageLoader: imageLoader)
     static var previews: some View {
-        AsyncImage(imageLoader: imageLoader,
+        AsyncImage(viewModel: viewModel,
                    placeholder: {
                        Text("loading")
                    },

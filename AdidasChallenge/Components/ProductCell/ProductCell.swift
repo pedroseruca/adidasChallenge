@@ -7,22 +7,21 @@
 
 import SwiftUI
 
-struct ProductCell<ViewModel>: View where
-    ViewModel: ProductCellViewModelProtocol {
-    private let viewModel: ViewModel
+struct ProductCell: View {
+    private let viewModel: ProductCellViewModelProtocol
     // TODO: Make a file for styles
     private let imageSize: CGFloat = 120
     private let padding: CGFloat = 5
     private let imageLeadingPadding: CGFloat = 10
     private let imageCornerRadius: CGFloat = 5
 
-    init(viewModel: ViewModel) {
+    init(viewModel: ProductCellViewModelProtocol) {
         self.viewModel = viewModel
     }
 
     var body: some View {
         HStack {
-            AsyncImage(imageLoader: viewModel.imageLoader) {
+            AsyncImage(viewModel: viewModel.imageViewModel) {
                 ProgressView()
                     .frame(width: imageSize, height: imageSize)
                     .scaleEffect(1.5)
@@ -68,22 +67,40 @@ struct ProductCell_Previews: PreviewProvider {
     }
 }
 
+// MARK: Preview #1
+
 private extension ProductCell_Previews {
-    private static let viewModel1 = ProductCellViewModel(product: Product(
-        id: "HI333",
-        name: "Sapatos Forum 84 BB",
-        description: "Description Description",
-        currency: "$",
-        price: 160,
-        imgUrl: "https://assets.adidas.com/images/w_320,h_320,f_auto,q_auto:sensitive,fl_lossy/c7099422ccc14e44b406abec00ba6c96_9366/NMD_R1_V2_Shoes_Black_FY6862_01_standard.jpg"
-    ))
-    
-    private static let viewModel2 = ProductCellViewModel(product: Product(
+    private static let product1 = Product(
         id: "HI333",
         name: "Cassina pt",
         description: "Description Description Description Description",
         currency: "$",
         price: 160,
         imgUrl: "https://assets.adidas.com/images/w_276,h_276,f_auto,q_auto:sensitive,fl_lossy/da278c9c5e244068b32cac4d0125fedd_9366/FY2002_00_plp_standard.jpg"
-    ))
+    )
+    static let viewModel1 = makeViewModel(with: product1)
+}
+
+// MARK: Preview #2
+
+private extension ProductCell_Previews {
+    private static let product2 = Product(
+        id: "HI333",
+        name: "Cassina pt",
+        description: "Description Description Description Description",
+        currency: "$",
+        price: 160,
+        imgUrl: "https://assets.adidas.com/images/w_276,h_276,f_auto,q_auto:sensitive,fl_lossy/da278c9c5e244068b32cac4d0125fedd_9366/FY2002_00_plp_standard.jpg"
+    )
+
+    static let viewModel2 = makeViewModel(with: product2)
+}
+
+private extension ProductCell_Previews {
+    static func makeViewModel(with product: Product) -> ProductCellViewModelProtocol {
+        let imgUrl = URL(string: product.imgUrl)
+        let imageLoader = ImageLoader(for: imgUrl)
+        return ProductCellViewModel(product: product,
+                                    imageLoader: imageLoader)
+    }
 }
