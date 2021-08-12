@@ -50,7 +50,7 @@ struct ProductDetailView: View {
                 }.padding(.all)
 
             }.frame(maxHeight: /*@START_MENU_TOKEN@*/ .infinity/*@END_MENU_TOKEN@*/, alignment: .top)
-        }
+        }.navigationBarTitleDisplayMode(.inline)
     }
 }
 
