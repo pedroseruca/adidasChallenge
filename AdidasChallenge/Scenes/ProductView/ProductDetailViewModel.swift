@@ -7,14 +7,6 @@
 
 import Foundation
 
-protocol ProductDetailViewModelProtocol {
-    var name: String { get }
-    var description: String { get }
-    var price: String { get }
-
-    func imageViewModel(for imageWidth: Float) -> AsyncImageViewModel
-}
-
 class ProductDetailViewModel: ProductDetailViewModelProtocol {
     private let product: Product
     private let imageLoader: ImageLoaderProtocol

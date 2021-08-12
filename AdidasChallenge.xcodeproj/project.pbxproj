@@ -27,6 +27,7 @@
 		12C6838626C5C34300C1597E /* ImageLoaderState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C6838526C5C34300C1597E /* ImageLoaderState.swift */; };
 		12C6838826C5C55000C1597E /* ProductCellViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C6838726C5C55000C1597E /* ProductCellViewModelProtocol.swift */; };
 		12C6838A26C5C5A900C1597E /* ProductListViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C6838926C5C5A900C1597E /* ProductListViewModelProtocol.swift */; };
+		12C6838C26C5C5F800C1597E /* ProductDetailViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C6838B26C5C5F800C1597E /* ProductDetailViewModelProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		12C6838526C5C34300C1597E /* ImageLoaderState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderState.swift; sourceTree = "<group>"; };
 		12C6838726C5C55000C1597E /* ProductCellViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCellViewModelProtocol.swift; sourceTree = "<group>"; };
 		12C6838926C5C5A900C1597E /* ProductListViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewModelProtocol.swift; sourceTree = "<group>"; };
+		12C6838B26C5C5F800C1597E /* ProductDetailViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewModelProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -248,6 +250,7 @@
 			children = (
 				12C6837D26C48D0200C1597E /* ProductDetailView.swift */,
 				12C6837F26C48D1800C1597E /* ProductDetailViewModel.swift */,
+				12C6838B26C5C5F800C1597E /* ProductDetailViewModelProtocol.swift */,
 			);
 			path = ProductView;
 			sourceTree = "<group>";
@@ -381,6 +384,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12C6838C26C5C5F800C1597E /* ProductDetailViewModelProtocol.swift in Sources */,
 				12C6837E26C48D0200C1597E /* ProductDetailView.swift in Sources */,
 				12C6838426C5C26100C1597E /* ImageLoaderError.swift in Sources */,
 				12C6836326C1E0C500C1597E /* Product.swift in Sources */,
