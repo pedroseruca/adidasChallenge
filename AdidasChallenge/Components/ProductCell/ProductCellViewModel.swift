@@ -29,4 +29,6 @@ class ProductCellViewModel: ProductCellViewModelProtocol {
     private(set) lazy var price = "\(product.price) " + product.currency
 
     private(set) lazy var imageViewModel = AsyncImageViewModel(imageLoader: imageLoader)
+    
+    
 }

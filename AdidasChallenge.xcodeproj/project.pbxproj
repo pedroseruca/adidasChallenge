@@ -172,9 +172,9 @@
 		12C6836B26C1EE0200C1597E /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				12C6837C26C48CEF00C1597E /* ProductView */,
-				12C6837926C47E6100C1597E /* ProductListView */,
 				12C6833626C1ABF900C1597E /* AdidasChallengeApp.swift */,
+				12C6837926C47E6100C1597E /* ProductListView */,
+				12C6837C26C48CEF00C1597E /* ProductView */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
