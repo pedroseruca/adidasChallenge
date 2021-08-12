@@ -20,7 +20,21 @@ struct ProductListView<ViewModel>: View where
             List {
                 ForEach(viewModel.indices) { index in
                     let viewModel: ProductCellViewModel = viewModel.productCellViewModel(for: index)
-                    ProductCell(viewModel: viewModel)
+                    
+                    let productDetailViewModel = ProductDetailViewModel(product: Product(
+                        id: "HI333",
+                        name: "product",
+                        description: "description",
+                        currency: "$",
+                        price: 4,
+                        imgUrl: "https://assets.adidas.com/images/w_320,h_320,f_auto,q_auto:sensitive,fl_lossy/c7099422ccc14e44b406abec00ba6c96_9366/NMD_R1_V2_Shoes_Black_FY6862_01_standard.jpg"
+                    ))
+                    let productDetailView = ProductDetailView(viewModel: productDetailViewModel)
+                    
+                    NavigationLink(destination: productDetailView) {
+                        ProductCell(viewModel: viewModel)
+                    }
+                    
                 }
             }
             // SwiftUI weird separators not aligned
