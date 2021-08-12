@@ -35,19 +35,8 @@ struct ProductDetailView: View {
                                height: 300,
                                alignment: /*@START_MENU_TOKEN@*/ .center/*@END_MENU_TOKEN@*/)
                 }
-
-                VStack(alignment: .leading, spacing: 10) {
-                    HStack(alignment: .firstTextBaseline) {
-                        Text(viewModel.name)
-                            .font(.title)
-                            .fontWeight(.medium)
-                        Spacer()
-                        Text(viewModel.price)
-                            .font(.title2)
-                        
-                    }
-                    Text(viewModel.description)
-                }.padding(.all)
+                
+                ProductDetailInfoView(viewModel: viewModel)
 
             }.frame(maxHeight: /*@START_MENU_TOKEN@*/ .infinity/*@END_MENU_TOKEN@*/, alignment: .top)
         }.navigationBarTitleDisplayMode(.inline)
