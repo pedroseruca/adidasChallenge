@@ -7,14 +7,15 @@
 
 import Foundation
 
-struct ProductListViewModel: ProductListViewModelProtocol {
+class ProductListViewModel: ProductListViewModelProtocol {
+    // TODO: TO be retrieved from BE
     private let products: Products
 
     init(products: Products) {
         self.products = products
     }
 
-    var indices: Range<Int> { products.indices }
+    private(set) lazy var indices: Range<Int> = products.indices
 
     func productCellViewModel(for index: Int) -> ProductCellViewModelProtocol {
         let product = products[index]
