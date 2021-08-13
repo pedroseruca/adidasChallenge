@@ -215,7 +215,6 @@
 				12C6839F26C5D2AC00C1597E /* ProductDetailInfoView */,
 				12C6837826C3425700C1597E /* AsyncImage */,
 				12C6837526C31BE200C1597E /* ProductCell */,
-				12C6839B26C5CF4000C1597E /* ProductCellInfoView */,
 				12C6839026C5C99700C1597E /* ProductReviewCell */,
 				12C6838D26C5C93600C1597E /* ProductReviews */,
 			);
@@ -243,6 +242,7 @@
 		12C6837526C31BE200C1597E /* ProductCell */ = {
 			isa = PBXGroup;
 			children = (
+				12C6839B26C5CF4000C1597E /* ProductCellInfoView */,
 				12C6837326C2D6C300C1597E /* ProductCell.swift */,
 				12C6837626C31BFD00C1597E /* ProductCellViewModel.swift */,
 				12C6838726C5C55000C1597E /* ProductCellViewModelProtocol.swift */,
