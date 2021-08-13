@@ -15,7 +15,14 @@ struct ProductReviewCell: View {
     }
 
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            Text("\(viewModel.rating)")
+                .font(.title2)
+                .fontWeight(.medium)
+                .foregroundColor(.gray)
+                .frame(minWidth: 25)
+            Text(viewModel.text)
+        }
     }
 }
 
