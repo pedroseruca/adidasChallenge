@@ -35,6 +35,7 @@ struct ProductDetailView: View {
                 }
 
                 ProductDetailInfoView(viewModel: viewModel)
+                Divider()
                 ProductReviewsView(viewModel: viewModel.reviewsViewModel)
 
             }.frame(maxHeight: .infinity, alignment: .top)

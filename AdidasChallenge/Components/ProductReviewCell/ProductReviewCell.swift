@@ -27,7 +27,7 @@ struct ProductReviewCell: View {
 }
 
 struct ProductReviewCell_Previews: PreviewProvider {
-    private static let review = ProductReview(productId: "HI333", locale: "en-us", rating: 0, text: "test")
+    private static let review = ProductReview(productId: "HI333", locale: "en-us", rating: 8, text: "typesetting, remaining essentially unchanged.")
     private static let viewModel = ProductReviewCellViewModel(review: review)
     static var previews: some View {
         ProductReviewCell(viewModel: viewModel)
