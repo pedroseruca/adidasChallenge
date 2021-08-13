@@ -17,8 +17,7 @@ struct ProductReviewsView: View {
     var body: some View {
         VStack(alignment: .leading) {
             ProductReviewsHeader(viewModel: viewModel)
-                .padding(.leading, 15)
-                .padding(.trailing, 15)
+                .padding(.horizontal, 15)
             ProductReviewsContent(viewModel: viewModel)
         }
     }
