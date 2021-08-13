@@ -35,8 +35,9 @@ struct ProductDetailView: View {
                                height: 300,
                                alignment: /*@START_MENU_TOKEN@*/ .center/*@END_MENU_TOKEN@*/)
                 }
-                
+
                 ProductDetailInfoView(viewModel: viewModel)
+                ProductReviewsView(viewModel: viewModel.reviewsViewModel)
 
             }.frame(maxHeight: /*@START_MENU_TOKEN@*/ .infinity/*@END_MENU_TOKEN@*/, alignment: .top)
         }.navigationBarTitleDisplayMode(.inline)

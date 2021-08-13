@@ -6,5 +6,9 @@
 //
 
 class ProductReviewsViewModel: ProductReviewsViewModelProtocol {
+    let reviews: ProductReviews
     
+    init(reviews: ProductReviews) {
+        self.reviews = reviews
+    }
 }

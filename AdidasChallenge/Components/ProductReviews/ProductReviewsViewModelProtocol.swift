@@ -6,5 +6,5 @@
 //
 
 protocol ProductReviewsViewModelProtocol {
-    
+    var reviews: ProductReviews { get }
 }
