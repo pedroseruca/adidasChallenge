@@ -25,22 +25,22 @@ struct ProductDetailView: View {
                         .scaleEffect(2)
                 } image: { image in
                     Image(uiImage: image)
-                        .frame(width: width,
-                               height: width,
-                               alignment: /*@START_MENU_TOKEN@*/ .center/*@END_MENU_TOKEN@*/)
+                        .frame(width: width, height: width)
+
                 } error: { _ in
                     Image("NoImageAvailable")
                         .resizable()
-                        .frame(width: 300,
-                               height: 300,
-                               alignment: /*@START_MENU_TOKEN@*/ .center/*@END_MENU_TOKEN@*/)
+                        .frame(width: 300, height: 300)
+                        .padding(.top, geometry.safeAreaInsets.top)
                 }
 
                 ProductDetailInfoView(viewModel: viewModel)
                 ProductReviewsView(viewModel: viewModel.reviewsViewModel)
 
-            }.frame(maxHeight: /*@START_MENU_TOKEN@*/ .infinity/*@END_MENU_TOKEN@*/, alignment: .top)
-        }.navigationBarTitleDisplayMode(.inline)
+            }.frame(maxHeight: .infinity, alignment: .top)
+                .edgesIgnoringSafeArea(.top)
+                .statusBar(hidden: true)
+        }
     }
 }
 
