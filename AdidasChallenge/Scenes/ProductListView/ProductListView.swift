@@ -14,21 +14,29 @@ struct ProductListView: View {
         self.viewModel = viewModel
     }
 
+    @State private var searchText = ""
+
     var body: some View {
         NavigationView {
-            List {
-                ForEach(viewModel.indices) { index in
-                    let cellViewModel = viewModel.productCellViewModel(for: index)
-                    let detailViewModel = viewModel.productDetailViewModel(for: index)
-                    let productDetailView = ProductDetailView(viewModel: detailViewModel)
-                    ZStack {
-                        NavigationLink(destination: productDetailView) {}.hidden()
-                        ProductCell(viewModel: cellViewModel)
+            VStack {
+                SearchBar(searchText: $searchText)
+                    .padding(.horizontal)
+
+                ScrollView {
+                    LazyVStack {
+                        ForEach(viewModel.indices) { index in
+                            let cellViewModel = viewModel.productCellViewModel(for: index)
+                            let detailViewModel = viewModel.productDetailViewModel(for: index)
+                            let productDetailView = ProductDetailView(viewModel: detailViewModel)
+                            NavigationLink(destination: productDetailView) {
+                                ProductCell(viewModel: cellViewModel)
+                            }.buttonStyle(PlainButtonStyle())
+                        }
                     }
                 }
+                .navigationBarTitle(Text("Search"))
+                .resignKeyboardOnDragGesture()
             }
-            // SwiftUI weird separators not aligned
-            .padding(.leading, -16)
         }
     }
 }
