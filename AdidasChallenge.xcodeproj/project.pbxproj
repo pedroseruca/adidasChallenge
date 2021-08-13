@@ -36,6 +36,7 @@
 		12C6839A26C5CB0100C1597E /* ProductReviewsViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C6839926C5CB0100C1597E /* ProductReviewsViewModelProtocol.swift */; };
 		12C6839E26C5D02300C1597E /* ProductCellInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C6839C26C5CF5500C1597E /* ProductCellInfoView.swift */; };
 		12C683A126C5D2B600C1597E /* ProductDetailInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C683A026C5D2B600C1597E /* ProductDetailInfoView.swift */; };
+		12C683A426C6B81A00C1597E /* ProductReviewsContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C683A326C6B81900C1597E /* ProductReviewsContent.swift */; };
 		12C683A726C6B8B900C1597E /* ProductReviewsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C683A626C6B8B900C1597E /* ProductReviewsHeader.swift */; };
 /* End PBXBuildFile section */
 
@@ -92,6 +93,7 @@
 		12C6839926C5CB0100C1597E /* ProductReviewsViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductReviewsViewModelProtocol.swift; sourceTree = "<group>"; };
 		12C6839C26C5CF5500C1597E /* ProductCellInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCellInfoView.swift; sourceTree = "<group>"; };
 		12C683A026C5D2B600C1597E /* ProductDetailInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailInfoView.swift; sourceTree = "<group>"; };
+		12C683A326C6B81900C1597E /* ProductReviewsContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductReviewsContent.swift; sourceTree = "<group>"; };
 		12C683A626C6B8B900C1597E /* ProductReviewsHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductReviewsHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -281,6 +283,7 @@
 			isa = PBXGroup;
 			children = (
 				12C683A526C6B8B000C1597E /* ProductReviewsHeader */,
+				12C683A226C6B7F200C1597E /* ProductReviewsContent */,
 				12C6838E26C5C95900C1597E /* ProductReviewsView.swift */,
 				12C6839726C5CAF500C1597E /* ProductReviewsViewModel.swift */,
 				12C6839926C5CB0100C1597E /* ProductReviewsViewModelProtocol.swift */,
@@ -312,6 +315,14 @@
 				12C683A026C5D2B600C1597E /* ProductDetailInfoView.swift */,
 			);
 			path = ProductDetailInfoView;
+			sourceTree = "<group>";
+		};
+		12C683A226C6B7F200C1597E /* ProductReviewsContent */ = {
+			isa = PBXGroup;
+			children = (
+				12C683A326C6B81900C1597E /* ProductReviewsContent.swift */,
+			);
+			path = ProductReviewsContent;
 			sourceTree = "<group>";
 		};
 		12C683A526C6B8B000C1597E /* ProductReviewsHeader */ = {
@@ -477,6 +488,7 @@
 				12C6837426C2D6C300C1597E /* ProductCell.swift in Sources */,
 				12C6833726C1ABF900C1597E /* AdidasChallengeApp.swift in Sources */,
 				12C6839626C5C9FB00C1597E /* ProductReviewCellViewModelProtocol.swift in Sources */,
+				12C683A426C6B81A00C1597E /* ProductReviewsContent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
