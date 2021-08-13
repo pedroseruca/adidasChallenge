@@ -38,6 +38,7 @@
 		12C683A126C5D2B600C1597E /* ProductDetailInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C683A026C5D2B600C1597E /* ProductDetailInfoView.swift */; };
 		12C683A426C6B81A00C1597E /* ProductReviewsContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C683A326C6B81900C1597E /* ProductReviewsContent.swift */; };
 		12C683A726C6B8B900C1597E /* ProductReviewsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C683A626C6B8B900C1597E /* ProductReviewsHeader.swift */; };
+		12C683AD26C7345300C1597E /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C683AC26C7345300C1597E /* View+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,7 @@
 		12C683A026C5D2B600C1597E /* ProductDetailInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailInfoView.swift; sourceTree = "<group>"; };
 		12C683A326C6B81900C1597E /* ProductReviewsContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductReviewsContent.swift; sourceTree = "<group>"; };
 		12C683A626C6B8B900C1597E /* ProductReviewsHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductReviewsHeader.swift; sourceTree = "<group>"; };
+		12C683AC26C7345300C1597E /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 		12C6833526C1ABF900C1597E /* AdidasChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				12C683AB26C7342D00C1597E /* Extensions */,
 				12C6836F26C28E0000C1597E /* Services */,
 				12C6836C26C1F3EA00C1597E /* Components */,
 				12C6836B26C1EE0200C1597E /* Scenes */,
@@ -333,6 +336,14 @@
 			path = ProductReviewsHeader;
 			sourceTree = "<group>";
 		};
+		12C683AB26C7342D00C1597E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				12C683AC26C7345300C1597E /* View+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -481,6 +492,7 @@
 				12C6838A26C5C5A900C1597E /* ProductListViewModelProtocol.swift in Sources */,
 				12C6839A26C5CB0100C1597E /* ProductReviewsViewModelProtocol.swift in Sources */,
 				12C6838026C48D1800C1597E /* ProductDetailViewModel.swift in Sources */,
+				12C683AD26C7345300C1597E /* View+Extensions.swift in Sources */,
 				12C6837B26C47E7C00C1597E /* ProductListViewModel.swift in Sources */,
 				12C6836526C1E28200C1597E /* ProductReview.swift in Sources */,
 				12C6838626C5C34300C1597E /* ImageLoaderState.swift in Sources */,
