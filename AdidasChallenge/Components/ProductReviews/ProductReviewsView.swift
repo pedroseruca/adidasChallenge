@@ -15,8 +15,9 @@ struct ProductReviewsView: View {
     }
     
     var body: some View {
-        List {
-            
+        List(viewModel.indices) { index in
+            let viewModel = viewModel.productReviewCellViewModel(for: index)
+            ProductReviewCell(viewModel: viewModel)
         }
     }
 }

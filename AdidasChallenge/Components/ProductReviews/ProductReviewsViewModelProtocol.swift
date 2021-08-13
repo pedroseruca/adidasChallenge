@@ -6,5 +6,7 @@
 //
 
 protocol ProductReviewsViewModelProtocol {
-    var reviews: ProductReviews { get }
+    var indices: Range<Int> { get }
+    
+    func productReviewCellViewModel(for index: Int) -> ProductReviewCellViewModelProtocol
 }
