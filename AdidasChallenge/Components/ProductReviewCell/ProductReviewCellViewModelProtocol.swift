@@ -6,5 +6,6 @@
 //
 
 protocol ProductReviewCellViewModelProtocol {
-    
+    var text: String { get }
+    var rating: String { get }
 }
