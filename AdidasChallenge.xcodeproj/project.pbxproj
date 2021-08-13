@@ -36,6 +36,7 @@
 		12C6839A26C5CB0100C1597E /* ProductReviewsViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C6839926C5CB0100C1597E /* ProductReviewsViewModelProtocol.swift */; };
 		12C6839E26C5D02300C1597E /* ProductCellInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C6839C26C5CF5500C1597E /* ProductCellInfoView.swift */; };
 		12C683A126C5D2B600C1597E /* ProductDetailInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C683A026C5D2B600C1597E /* ProductDetailInfoView.swift */; };
+		12C683A726C6B8B900C1597E /* ProductReviewsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C683A626C6B8B900C1597E /* ProductReviewsHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,7 @@
 		12C6839926C5CB0100C1597E /* ProductReviewsViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductReviewsViewModelProtocol.swift; sourceTree = "<group>"; };
 		12C6839C26C5CF5500C1597E /* ProductCellInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCellInfoView.swift; sourceTree = "<group>"; };
 		12C683A026C5D2B600C1597E /* ProductDetailInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailInfoView.swift; sourceTree = "<group>"; };
+		12C683A626C6B8B900C1597E /* ProductReviewsHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductReviewsHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -278,6 +280,7 @@
 		12C6838D26C5C93600C1597E /* ProductReviews */ = {
 			isa = PBXGroup;
 			children = (
+				12C683A526C6B8B000C1597E /* ProductReviewsHeader */,
 				12C6838E26C5C95900C1597E /* ProductReviewsView.swift */,
 				12C6839726C5CAF500C1597E /* ProductReviewsViewModel.swift */,
 				12C6839926C5CB0100C1597E /* ProductReviewsViewModelProtocol.swift */,
@@ -309,6 +312,14 @@
 				12C683A026C5D2B600C1597E /* ProductDetailInfoView.swift */,
 			);
 			path = ProductDetailInfoView;
+			sourceTree = "<group>";
+		};
+		12C683A526C6B8B000C1597E /* ProductReviewsHeader */ = {
+			isa = PBXGroup;
+			children = (
+				12C683A626C6B8B900C1597E /* ProductReviewsHeader.swift */,
+			);
+			path = ProductReviewsHeader;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -448,6 +459,7 @@
 				12C683A126C5D2B600C1597E /* ProductDetailInfoView.swift in Sources */,
 				12C6836626C1E42A00C1597E /* ProductListView.swift in Sources */,
 				12C6839826C5CAF500C1597E /* ProductReviewsViewModel.swift in Sources */,
+				12C683A726C6B8B900C1597E /* ProductReviewsHeader.swift in Sources */,
 				12C6837726C31BFD00C1597E /* ProductCellViewModel.swift in Sources */,
 				12C6837226C28E1F00C1597E /* ImageLoader.swift in Sources */,
 				12C6839426C5C9EA00C1597E /* ProductReviewCellViewModel.swift in Sources */,

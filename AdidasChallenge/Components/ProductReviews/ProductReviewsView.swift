@@ -16,20 +16,6 @@ struct ProductReviewsView: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            HStack(spacing: 0) {
-                Text("Reviews")
-                    .font(.title2)
-                    .fontWeight(.medium)
-                Spacer()
-                if viewModel.ratingsCountValue != 0 {
-                    Text(viewModel.averageRating)
-                        .font(.title3)
-                        .fontWeight(.medium)
-                    Text(viewModel.ratingsCount)
-                }
-            }
-            .padding(.leading, 15)
-            .padding(.trailing, 15)
             if viewModel.ratingsCountValue == 0 {
                 Text(viewModel.noReviewsMessage)
                     .padding(.all, 15)
@@ -41,6 +27,9 @@ struct ProductReviewsView: View {
                 // SwiftUI weird separators not aligned
                 .padding(.leading, -16)
             }
+            ProductReviewsHeader(viewModel: viewModel)
+                .padding(.leading, 15)
+                .padding(.trailing, 15)
         }
     }
 }
