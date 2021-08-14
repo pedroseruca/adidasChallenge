@@ -8,33 +8,34 @@
 import SwiftUI
 
 struct ProductListView: View {
-    private let viewModel: ProductListViewModelProtocol
+    @ObservedObject private var viewModel: ProductListViewModel
 
-    init(viewModel: ProductListViewModelProtocol) {
+    init(viewModel: ProductListViewModel) {
         self.viewModel = viewModel
     }
-
-    @State private var searchText = ""
 
     var body: some View {
         NavigationView {
             VStack {
-                SearchBar(searchText: $searchText)
-                    .padding(.horizontal)
+                SearchBar { searchText in
+                    viewModel.searchProduct(for: searchText)
+                }
+                .padding(.horizontal)
 
                 ScrollView {
                     LazyVStack {
-                        ForEach(viewModel.indices) { index in
-                            let cellViewModel = viewModel.productCellViewModel(for: index)
-                            let detailViewModel = viewModel.productDetailViewModel(for: index)
-                            let productDetailView = ProductDetailView(viewModel: detailViewModel)
-                            NavigationLink(destination: productDetailView) {
-                                ProductCell(viewModel: cellViewModel)
+                        if let message = viewModel.noProductsMessage {
+                            Text(message)
+                        }
+                        ForEach(viewModel.models) { model in
+                            let detailView = ProductDetailView(viewModel: model.detailViewModelProtocol)
+                            NavigationLink(destination: detailView) {
+                                ProductCell(viewModel: model.cellViewModelProtocol)
                             }.buttonStyle(PlainButtonStyle())
                         }
                     }
                 }
-                .navigationBarTitle(Text("Search"))
+                .navigationBarTitle(Text(viewModel.navigationTitle))
                 .resignKeyboardOnDragGesture()
             }
         }
@@ -45,6 +46,8 @@ struct InitialView_Previews: PreviewProvider {
     private static let viewModel = ProductListViewModel(products: mockProducts)
     static var previews: some View {
         ProductListView(viewModel: viewModel)
+
+        ProductListView(viewModel: ProductListViewModel(products: []))
     }
 }
 

@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct SearchBar: View {
-    @Binding var searchText: String
+    var onSearchText: (String) -> Void
+    @State private var searchText: String = ""
     @State private var showCancelButton: Bool = false
 
     var body: some View {
@@ -17,9 +18,9 @@ struct SearchBar: View {
                 Image(systemName: "magnifyingglass")
 
                 TextField("search", text: $searchText, onEditingChanged: { _ in
-                    self.showCancelButton = true
+                    showCancelButton = true
                 }, onCommit: {
-                    print("onCommit")
+                    onSearchText(searchText)
                 }).foregroundColor(.primary)
 
                 Button(action: {
@@ -37,8 +38,8 @@ struct SearchBar: View {
             if showCancelButton {
                 Button("Cancel") {
                     UIApplication.shared.endEditing(true)
-                    self.searchText = ""
-                    self.showCancelButton = false
+                    searchText = ""
+                    showCancelButton = false
                 }
                 .foregroundColor(Color(.systemBlue))
             }
@@ -49,7 +50,7 @@ struct SearchBar: View {
 struct SearchBar_Previews: PreviewProvider {
     @State static var searchText = ""
     static var previews: some View {
-        SearchBar(searchText: $searchText)
+        SearchBar { _ in }
             .previewLayout(.sizeThatFits)
     }
 }

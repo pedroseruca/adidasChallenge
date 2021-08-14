@@ -39,6 +39,7 @@
 		12C683A726C6B8B900C1597E /* ProductReviewsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C683A626C6B8B900C1597E /* ProductReviewsHeader.swift */; };
 		12C683AA26C7338B00C1597E /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C683A926C7338B00C1597E /* SearchBar.swift */; };
 		12C683AD26C7345300C1597E /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C683AC26C7345300C1597E /* View+Extensions.swift */; };
+		12C683B026C74A5200C1597E /* ProductListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C683AF26C74A5200C1597E /* ProductListModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,7 @@
 		12C683A626C6B8B900C1597E /* ProductReviewsHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductReviewsHeader.swift; sourceTree = "<group>"; };
 		12C683A926C7338B00C1597E /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		12C683AC26C7345300C1597E /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
+		12C683AF26C74A5200C1597E /* ProductListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -268,6 +270,7 @@
 				12C683A826C7337D00C1597E /* SearchBar */,
 				12C6833826C1ABF900C1597E /* ProductListView.swift */,
 				12C6837A26C47E7C00C1597E /* ProductListViewModel.swift */,
+				12C683AF26C74A5200C1597E /* ProductListModel.swift */,
 			);
 			path = ProductListView;
 			sourceTree = "<group>";
@@ -483,6 +486,7 @@
 			files = (
 				12C6838C26C5C5F800C1597E /* ProductDetailViewModelProtocol.swift in Sources */,
 				12C6837E26C48D0200C1597E /* ProductDetailView.swift in Sources */,
+				12C683B026C74A5200C1597E /* ProductListModel.swift in Sources */,
 				12C6838F26C5C95900C1597E /* ProductReviewsView.swift in Sources */,
 				12C6838426C5C26100C1597E /* ImageLoaderError.swift in Sources */,
 				12C6836326C1E0C500C1597E /* Product.swift in Sources */,
