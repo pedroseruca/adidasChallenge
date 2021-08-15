@@ -48,6 +48,8 @@ struct Endpoint {
         case let .post(body):
             request.httpMethod = "POST"
             request.httpBody = body
+            request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+            request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Accept")
         }
         return request
     }

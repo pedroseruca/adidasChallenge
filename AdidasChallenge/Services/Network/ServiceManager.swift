@@ -51,7 +51,7 @@ final class ServiceManager: ServiceManagerProtocol {
             .tryMap { output in
                 guard
                     let response = output.response as? HTTPURLResponse,
-                    response.statusCode == 200 else {
+                    200...300 ~= response.statusCode else {
                     throw Constants.Network.HTTPError.statusCode
                 }
                 return output
