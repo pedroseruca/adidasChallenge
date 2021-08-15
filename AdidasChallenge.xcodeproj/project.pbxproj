@@ -49,6 +49,7 @@
 		12C683C726C9BF0300C1597E /* ProductListFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C683C626C9BF0300C1597E /* ProductListFactory.swift */; };
 		12C683C926C9BF1B00C1597E /* ProductCellFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C683C826C9BF1B00C1597E /* ProductCellFactory.swift */; };
 		12C683CB26C9BF3100C1597E /* ProductDetailFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C683CA26C9BF3100C1597E /* ProductDetailFactory.swift */; };
+		12C683CE26C9D2C500C1597E /* PrimaryButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C683CD26C9D2C500C1597E /* PrimaryButtonStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +118,7 @@
 		12C683C626C9BF0300C1597E /* ProductListFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListFactory.swift; sourceTree = "<group>"; };
 		12C683C826C9BF1B00C1597E /* ProductCellFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCellFactory.swift; sourceTree = "<group>"; };
 		12C683CA26C9BF3100C1597E /* ProductDetailFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailFactory.swift; sourceTree = "<group>"; };
+		12C683CD26C9D2C500C1597E /* PrimaryButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,6 +238,7 @@
 		12C6836C26C1F3EA00C1597E /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				12C683CC26C9D2B100C1597E /* ButtonStyles */,
 				12C6839F26C5D2AC00C1597E /* ProductDetailInfoView */,
 				12C6837826C3425700C1597E /* AsyncImage */,
 				12C6837526C31BE200C1597E /* ProductCell */,
@@ -406,6 +409,14 @@
 			path = Factories;
 			sourceTree = "<group>";
 		};
+		12C683CC26C9D2B100C1597E /* ButtonStyles */ = {
+			isa = PBXGroup;
+			children = (
+				12C683CD26C9D2C500C1597E /* PrimaryButtonStyle.swift */,
+			);
+			path = ButtonStyles;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -568,6 +579,7 @@
 				12C6839626C5C9FB00C1597E /* ProductReviewCellViewModelProtocol.swift in Sources */,
 				12C683C326C9B2B600C1597E /* AdidasFactory.swift in Sources */,
 				12C683B726C90D1800C1597E /* AdidasAPI.swift in Sources */,
+				12C683CE26C9D2C500C1597E /* PrimaryButtonStyle.swift in Sources */,
 				12C683C726C9BF0300C1597E /* ProductListFactory.swift in Sources */,
 				12C683A426C6B81A00C1597E /* ProductReviewsContent.swift in Sources */,
 				12C683B926C9178B00C1597E /* Endpoint.swift in Sources */,

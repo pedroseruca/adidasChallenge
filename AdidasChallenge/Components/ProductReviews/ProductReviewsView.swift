@@ -19,6 +19,13 @@ struct ProductReviewsView: View {
             ProductReviewsHeader(viewModel: viewModel)
                 .padding(.horizontal, 15)
             ProductReviewsContent(viewModel: viewModel)
+            HStack {
+                Spacer()
+                Button("Add review") {
+                }
+                .padding()
+                .buttonStyle(PrimaryButtonStyle(color: .black))
+            }
         }
     }
 }
