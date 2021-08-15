@@ -29,9 +29,10 @@ struct ProductListView: View {
                             Text(message)
                         }
                         ForEach(viewModel.models) { model in
-                            let detailView = ProductDetailView(viewModel: model.detailViewModelProtocol)
+                            let detailView = ProductDetailView(viewModel: model.detailViewModel)
                             NavigationLink(destination: detailView) {
                                 ProductCell(viewModel: model.cellViewModelProtocol)
+                                
                             }.buttonStyle(PlainButtonStyle())
                         }
                     }

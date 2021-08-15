@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct ProductDetailInfoView: View {
-    private let viewModel: ProductDetailViewModelProtocol
+    private let viewModel: ProductDetailViewModel
 
-    init(viewModel: ProductDetailViewModelProtocol) {
+    init(viewModel: ProductDetailViewModel) {
         self.viewModel = viewModel
     }
 
@@ -49,7 +49,7 @@ private extension ProductDetailInfoView_Previews {
 }
 
 private extension ProductDetailInfoView_Previews {
-    static func makeViewModel(with product: Product) -> ProductDetailViewModelProtocol {
+    static func makeViewModel(with product: Product) -> ProductDetailViewModel {
         let imageLoader = ImageLoader(for: product.imgUrl)
         return ProductDetailViewModel(product: product,
                                       imageLoader: imageLoader)

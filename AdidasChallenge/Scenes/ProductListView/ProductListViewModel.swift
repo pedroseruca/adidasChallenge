@@ -59,7 +59,7 @@ class ProductListViewModel: ObservableObject {
                                     imageLoader: imageLoader)
     }
 
-    private func productDetailViewModel(for product: Product) -> ProductDetailViewModelProtocol {
+    private func productDetailViewModel(for product: Product) -> ProductDetailViewModel {
         let imageLoader = ImageLoader(for: product.imgUrl)
         return ProductDetailViewModel(product: product,
                                       imageLoader: imageLoader)
@@ -70,7 +70,7 @@ class ProductListViewModel: ObservableObject {
             .map { product in
                 ProductListModel(id: product.id,
                                  cellViewModelProtocol: productCellViewModel(for: product),
-                                 detailViewModelProtocol: productDetailViewModel(for: product))
+                                 detailViewModel: productDetailViewModel(for: product))
             }
     }
 

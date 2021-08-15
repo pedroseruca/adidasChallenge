@@ -8,5 +8,5 @@
 struct ProductListModel: Identifiable {
     var id: String
     var cellViewModelProtocol: ProductCellViewModelProtocol
-    var detailViewModelProtocol: ProductDetailViewModelProtocol
+    var detailViewModel: ProductDetailViewModel
 }

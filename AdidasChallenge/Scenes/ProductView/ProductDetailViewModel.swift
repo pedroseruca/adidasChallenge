@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ProductDetailViewModel: ProductDetailViewModelProtocol {
+class ProductDetailViewModel: ObservableObject {
     private let product: Product
     private let imageLoader: ImageLoaderProtocol
 
