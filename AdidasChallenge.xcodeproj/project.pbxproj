@@ -40,6 +40,13 @@
 		12C683AA26C7338B00C1597E /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C683A926C7338B00C1597E /* SearchBar.swift */; };
 		12C683AD26C7345300C1597E /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C683AC26C7345300C1597E /* View+Extensions.swift */; };
 		12C683B026C74A5200C1597E /* ProductListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C683AF26C74A5200C1597E /* ProductListModel.swift */; };
+		12C683B426C8542E00C1597E /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C683B226C8542E00C1597E /* ServiceManager.swift */; };
+		12C683B526C8542E00C1597E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C683B326C8542E00C1597E /* Constants.swift */; };
+		12C683B726C90D1800C1597E /* AdidasAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C683B626C90D1800C1597E /* AdidasAPI.swift */; };
+		12C683B926C9178B00C1597E /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C683B826C9178B00C1597E /* Endpoint.swift */; };
+		12C683BC26C9300D00C1597E /* AdidasAPIProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C683BB26C9300D00C1597E /* AdidasAPIProtocol.swift */; };
+		12C683BE26C9305400C1597E /* AdidasAPI+Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C683BD26C9305400C1597E /* AdidasAPI+Products.swift */; };
+		12C683C026C9309300C1597E /* AdidasAPI+Reviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C683BF26C9309300C1597E /* AdidasAPI+Reviews.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +106,13 @@
 		12C683A926C7338B00C1597E /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		12C683AC26C7345300C1597E /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		12C683AF26C74A5200C1597E /* ProductListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListModel.swift; sourceTree = "<group>"; };
+		12C683B226C8542E00C1597E /* ServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
+		12C683B326C8542E00C1597E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		12C683B626C90D1800C1597E /* AdidasAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdidasAPI.swift; sourceTree = "<group>"; };
+		12C683B826C9178B00C1597E /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		12C683BB26C9300D00C1597E /* AdidasAPIProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdidasAPIProtocol.swift; sourceTree = "<group>"; };
+		12C683BD26C9305400C1597E /* AdidasAPI+Products.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AdidasAPI+Products.swift"; sourceTree = "<group>"; };
+		12C683BF26C9309300C1597E /* AdidasAPI+Reviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AdidasAPI+Reviews.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,6 +243,7 @@
 		12C6836F26C28E0000C1597E /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				12C683B126C8534000C1597E /* Network */,
 				12C6837026C28E0600C1597E /* ImageLoader */,
 			);
 			path = Services;
@@ -353,6 +368,28 @@
 				12C683AC26C7345300C1597E /* View+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		12C683B126C8534000C1597E /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				12C683BA26C92FE100C1597E /* AdidasAPI */,
+				12C683B326C8542E00C1597E /* Constants.swift */,
+				12C683B226C8542E00C1597E /* ServiceManager.swift */,
+				12C683B826C9178B00C1597E /* Endpoint.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		12C683BA26C92FE100C1597E /* AdidasAPI */ = {
+			isa = PBXGroup;
+			children = (
+				12C683B626C90D1800C1597E /* AdidasAPI.swift */,
+				12C683BD26C9305400C1597E /* AdidasAPI+Products.swift */,
+				12C683BF26C9309300C1597E /* AdidasAPI+Reviews.swift */,
+				12C683BB26C9300D00C1597E /* AdidasAPIProtocol.swift */,
+			);
+			path = AdidasAPI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -490,9 +527,11 @@
 				12C6838F26C5C95900C1597E /* ProductReviewsView.swift in Sources */,
 				12C6838426C5C26100C1597E /* ImageLoaderError.swift in Sources */,
 				12C6836326C1E0C500C1597E /* Product.swift in Sources */,
+				12C683C026C9309300C1597E /* AdidasAPI+Reviews.swift in Sources */,
 				12C683A126C5D2B600C1597E /* ProductDetailInfoView.swift in Sources */,
 				12C6836626C1E42A00C1597E /* ProductListView.swift in Sources */,
 				12C6839826C5CAF500C1597E /* ProductReviewsViewModel.swift in Sources */,
+				12C683B526C8542E00C1597E /* Constants.swift in Sources */,
 				12C683A726C6B8B900C1597E /* ProductReviewsHeader.swift in Sources */,
 				12C6837726C31BFD00C1597E /* ProductCellViewModel.swift in Sources */,
 				12C6837226C28E1F00C1597E /* ImageLoader.swift in Sources */,
@@ -504,15 +543,20 @@
 				12C6839A26C5CB0100C1597E /* ProductReviewsViewModelProtocol.swift in Sources */,
 				12C6838026C48D1800C1597E /* ProductDetailViewModel.swift in Sources */,
 				12C683AD26C7345300C1597E /* View+Extensions.swift in Sources */,
+				12C683BC26C9300D00C1597E /* AdidasAPIProtocol.swift in Sources */,
 				12C6837B26C47E7C00C1597E /* ProductListViewModel.swift in Sources */,
 				12C6836526C1E28200C1597E /* ProductReview.swift in Sources */,
+				12C683BE26C9305400C1597E /* AdidasAPI+Products.swift in Sources */,
 				12C683AA26C7338B00C1597E /* SearchBar.swift in Sources */,
 				12C6838626C5C34300C1597E /* ImageLoaderState.swift in Sources */,
 				12C6838226C5641C00C1597E /* AsyncImageViewModel.swift in Sources */,
 				12C6837426C2D6C300C1597E /* ProductCell.swift in Sources */,
 				12C6833726C1ABF900C1597E /* AdidasChallengeApp.swift in Sources */,
 				12C6839626C5C9FB00C1597E /* ProductReviewCellViewModelProtocol.swift in Sources */,
+				12C683B726C90D1800C1597E /* AdidasAPI.swift in Sources */,
 				12C683A426C6B81A00C1597E /* ProductReviewsContent.swift in Sources */,
+				12C683B926C9178B00C1597E /* Endpoint.swift in Sources */,
+				12C683B426C8542E00C1597E /* ServiceManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
