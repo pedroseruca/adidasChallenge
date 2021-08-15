@@ -10,10 +10,14 @@ import Foundation
 class ProductDetailViewModel: ObservableObject {
     private let product: Product
     private let imageLoader: ImageLoaderProtocol
+    private let adidasAPI: AdidasAPIReviewsProtocol
 
-    init(product: Product, imageLoader: ImageLoaderProtocol) {
+    init(product: Product,
+         imageLoader: ImageLoaderProtocol,
+         adidasAPI: AdidasAPIReviewsProtocol) {
         self.product = product
         self.imageLoader = imageLoader
+        self.adidasAPI = adidasAPI
     }
 
     private(set) lazy var name = product.name.uppercased()

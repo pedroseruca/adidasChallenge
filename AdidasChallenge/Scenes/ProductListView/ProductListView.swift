@@ -56,17 +56,43 @@ struct InitialView_Previews: PreviewProvider {
 }
 
 private extension InitialView_Previews {
-    struct MockAdidasAPI: AdidasAPIProductsProtocol {
+    struct MockAdidasAPI: AdidasAPIProductsProtocol, AdidasAPIReviewsProtocol {
         let products: Products
         
         func getProducts() -> AnyPublisher<Products, Error> {
             Future { $0(.success(products)) }
                 .eraseToAnyPublisher()
         }
+        
+        func getReview(for productId: String) -> AnyPublisher<ProductReviews, Error> {
+            Future { $0(.success([])) }
+                .eraseToAnyPublisher()
+        }
+
+        func postReview(for productId: String, review: ProductReview) -> AnyPublisher<Void, Error> {
+            Future { $0(.success(())) }
+                .eraseToAnyPublisher()
+        }
     }
-    private static let viewModelNoProducts = ProductListViewModel(adidasAPI: mockAdidasAPINoProducts)
+    
+    struct MockAdidasFactory: ProductCellFactory, ProductDetailFactory {        
+        func makeProductCellViewModel(for product: Product) -> ProductCellViewModelProtocol {
+            let imageLoader = ImageLoader(for: product.imgUrl)
+            return ProductCellViewModel(product: product,
+                                        imageLoader: imageLoader)
+        }
+        
+        func makeProductDetailViewModel(for product: Product) -> ProductDetailViewModel {
+            let imageLoader = ImageLoader(for: product.imgUrl)
+            return ProductDetailViewModel(product: product,
+                                          imageLoader: imageLoader,
+                                          adidasAPI: MockAdidasAPI(products: []))
+        }
+    }
+    
+    private static let viewModelNoProducts = ProductListViewModel(adidasAPI: mockAdidasAPINoProducts, factory: MockAdidasFactory())
     private static let mockAdidasAPINoProducts = MockAdidasAPI(products: [])
-    private static let viewModel = ProductListViewModel(adidasAPI: mockAdidasAPI)
+    private static let viewModel = ProductListViewModel(adidasAPI: mockAdidasAPI, factory: MockAdidasFactory())
     private static let mockAdidasAPI = MockAdidasAPI(products: mockProducts)
     private static let mockProducts = [
         Product(

@@ -5,6 +5,7 @@
 //  Created by Pedro Seruca on 11/08/2021.
 //
 
+import Combine
 import SwiftUI
 
 struct ProductDetailView: View {
@@ -87,15 +88,30 @@ private extension ProductDetailView_Previews {
         }
     }
 
+    struct MockAdidasAPI: AdidasAPIReviewsProtocol {
+        let reviews: ProductReviews
+        func getReview(for productId: String) -> AnyPublisher<ProductReviews, Error> {
+            Future { $0(.success(reviews)) }
+                .eraseToAnyPublisher()
+        }
+
+        func postReview(for productId: String, review: ProductReview) -> AnyPublisher<Void, Error> {
+            Future { $0(.success(())) }
+                .eraseToAnyPublisher()
+        }
+    }
+
     static func makeViewModelLoading() -> ProductDetailViewModel {
         let imageLoader = MockImageLoader()
         return ProductDetailViewModel(product: product,
-                                      imageLoader: imageLoader)
+                                      imageLoader: imageLoader,
+                                      adidasAPI: MockAdidasAPI(reviews: []))
     }
 
     static func makeViewModel(with product: Product) -> ProductDetailViewModel {
         let imageLoader = ImageLoader(for: product.imgUrl)
         return ProductDetailViewModel(product: product,
-                                      imageLoader: imageLoader)
+                                      imageLoader: imageLoader,
+                                      adidasAPI: MockAdidasAPI(reviews: []))
     }
 }

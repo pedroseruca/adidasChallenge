@@ -10,6 +10,7 @@ import Foundation
 
 class ProductListViewModel: ObservableObject {
     private let adidasAPI: AdidasAPIProductsProtocol
+    private let factory: ProductCellFactory & ProductDetailFactory
 
     private var products: Products = []
     private lazy var filteredProducts = products
@@ -17,8 +18,10 @@ class ProductListViewModel: ObservableObject {
     private let noProductsText = "There is no products on our shop yet."
     private let noFilteredProductsText = "There is no products for that search. \nTry another word."
 
-    init(adidasAPI: AdidasAPIProductsProtocol) {
+    init(adidasAPI: AdidasAPIProductsProtocol,
+         factory: ProductCellFactory & ProductDetailFactory) {
         self.adidasAPI = adidasAPI
+        self.factory = factory
         updateFilteredProducts()
     }
 
@@ -54,15 +57,11 @@ class ProductListViewModel: ObservableObject {
     }
 
     private func productCellViewModel(for product: Product) -> ProductCellViewModelProtocol {
-        let imageLoader = ImageLoader(for: product.imgUrl)
-        return ProductCellViewModel(product: product,
-                                    imageLoader: imageLoader)
+        factory.makeProductCellViewModel(for: product)
     }
 
     private func productDetailViewModel(for product: Product) -> ProductDetailViewModel {
-        let imageLoader = ImageLoader(for: product.imgUrl)
-        return ProductDetailViewModel(product: product,
-                                      imageLoader: imageLoader)
+        factory.makeProductDetailViewModel(for: product)
     }
 
     private func updateFilteredProducts() {
