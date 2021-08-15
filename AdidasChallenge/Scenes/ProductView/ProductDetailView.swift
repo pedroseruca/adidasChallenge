@@ -21,6 +21,7 @@ struct ProductDetailView: View {
             VStack {
                 AsyncImage(viewModel: viewModel.imageViewModel(for: Float(width))) {
                     ProgressView()
+                        .padding(.bottom, 10)
                         .frame(width: width, height: width)
                         .scaleEffect(2)
                 } image: { image in
@@ -37,10 +38,9 @@ struct ProductDetailView: View {
                 ProductDetailInfoView(viewModel: viewModel)
                 Divider()
                 ProductReviewsView(viewModel: viewModel.reviewsViewModel)
-
-            }.frame(maxHeight: .infinity, alignment: .top)
-                .edgesIgnoringSafeArea(.top)
-                .statusBar(hidden: true)
+            }
+            .frame(maxHeight: .infinity, alignment: .top)
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }
@@ -62,7 +62,7 @@ private extension ProductDetailView_Previews {
         description: "Description Description",
         currency: "$",
         price: 160,
-        imgUrl: "https://assets.adidas.com/images/w_320,h_320,f_auto,q_auto:sensitive,fl_lossy/c7099422ccc14e44b406abec00ba6c96_9366/NMD_R1_V2_Shoes_Black_FY6862_01_standard.jpg"
+        imgUrl: "https://assets.adidas.com/images/w_320,h_320,f_auto,q_auto:sensitive,fl_lossy/807d251c686648de85f2abb10042fdf9_9366/GC7240_01_laydown.jpg"
     )
     static let product2 = Product(
         id: "HI333",
