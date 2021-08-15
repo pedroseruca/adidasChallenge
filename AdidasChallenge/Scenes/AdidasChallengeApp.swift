@@ -11,7 +11,9 @@ import SwiftUI
 struct AdidasChallengeApp: App {
     var body: some Scene {
         WindowGroup {
-            let viewModel = ProductListViewModel(products: AdidasChallengeApp.mockProducts)
+            let serviceManager = ServiceManager()
+            let adidasAPI = AdidasAPI(serviceManager: serviceManager)
+            let viewModel = ProductListViewModel(adidasAPI: adidasAPI)
             ProductListView(viewModel: viewModel)
         }
     }

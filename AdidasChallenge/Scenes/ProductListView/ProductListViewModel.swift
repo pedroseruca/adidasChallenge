@@ -5,24 +5,38 @@
 //  Created by Pedro Seruca on 11/08/2021.
 //
 
+import Combine
 import Foundation
 
 class ProductListViewModel: ObservableObject {
-    // TODO: TO be retrieved from BE
-    private let products: Products
+    private let adidasAPI: AdidasAPIProductsProtocol
+
+    private var products: Products = []
     private lazy var filteredProducts = products
 
     private let noProductsText = "There is no products on our shop yet."
     private let noFilteredProductsText = "There is no products for that search. \nTry another word."
 
-    init(products: Products) {
-        self.products = products
+    init(adidasAPI: AdidasAPIProductsProtocol) {
+        self.adidasAPI = adidasAPI
         updateFilteredProducts()
     }
 
     @Published var models: [ProductListModel] = []
     let navigationTitle = "Search"
     private(set) lazy var noProductsMessage: String? = products.isEmpty ? noProductsText : nil
+    private var subscriptions: Set<AnyCancellable> = .init()
+
+    func viewDidAppear() {
+        adidasAPI
+            .getProducts()
+            .sink(receiveCompletion: { error in
+                print(error)
+            }, receiveValue: { [weak self] response in
+                self?.products = response
+                self?.resetFilteredProducts()
+            }).store(in: &subscriptions)
+    }
 
     func searchProduct(for searchText: String) {
         if searchText.isEmpty {
@@ -61,8 +75,8 @@ class ProductListViewModel: ObservableObject {
     }
 
     private func resetFilteredProducts() {
-        noProductsMessage = products.isEmpty ? noProductsText : nil
         filteredProducts = products
+        noProductsMessage = products.isEmpty ? noProductsText : nil
         updateFilteredProducts()
     }
 }

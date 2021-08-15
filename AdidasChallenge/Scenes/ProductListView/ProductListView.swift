@@ -5,6 +5,7 @@
 //  Created by Pedro Seruca on 09/08/2021.
 //
 
+import Combine
 import SwiftUI
 
 struct ProductListView: View {
@@ -38,20 +39,34 @@ struct ProductListView: View {
                 .navigationBarTitle(Text(viewModel.navigationTitle))
                 .resignKeyboardOnDragGesture()
             }
+        }.onAppear {
+            viewModel.viewDidAppear()
         }
     }
 }
 
 struct InitialView_Previews: PreviewProvider {
-    private static let viewModel = ProductListViewModel(products: mockProducts)
+
     static var previews: some View {
         ProductListView(viewModel: viewModel)
 
-        ProductListView(viewModel: ProductListViewModel(products: []))
+        ProductListView(viewModel: viewModelNoProducts)
     }
 }
 
 private extension InitialView_Previews {
+    struct MockAdidasAPI: AdidasAPIProductsProtocol {
+        let products: Products
+        
+        func getProducts() -> AnyPublisher<Products, Error> {
+            Future { $0(.success(products)) }
+                .eraseToAnyPublisher()
+        }
+    }
+    private static let viewModelNoProducts = ProductListViewModel(adidasAPI: mockAdidasAPINoProducts)
+    private static let mockAdidasAPINoProducts = MockAdidasAPI(products: [])
+    private static let viewModel = ProductListViewModel(adidasAPI: mockAdidasAPI)
+    private static let mockAdidasAPI = MockAdidasAPI(products: mockProducts)
     private static let mockProducts = [
         Product(
             id: "HI333",
