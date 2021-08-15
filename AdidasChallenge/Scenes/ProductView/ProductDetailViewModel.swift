@@ -37,10 +37,10 @@ class ProductDetailViewModel: ObservableObject {
         adidasAPI
             .getReview(for: product.id)
             .map { ProductReviewsViewModel(reviews: $0) }
-            .sink(receiveCompletion: { error in
+            .sink { error in
                 print(error)
-            }, receiveValue: { [weak self] response in
+            } receiveValue: { [weak self] response in
                 self?.reviewsViewModel = response
-            }).store(in: &subscriptions)
+            }.store(in: &subscriptions)
     }
 }

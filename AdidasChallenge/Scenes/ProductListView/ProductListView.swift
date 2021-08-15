@@ -25,6 +25,7 @@ struct ProductListView: View {
 
                 ScrollView {
                     LazyVStack {
+                        // TODO: this is logic. Add a showMessage variable on VM
                         if let message = viewModel.noProductsMessage {
                             Text(message)
                         }
