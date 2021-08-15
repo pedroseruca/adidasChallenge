@@ -42,6 +42,8 @@ struct ProductDetailView: View {
             }
             .frame(maxHeight: .infinity, alignment: .top)
             .navigationBarTitleDisplayMode(.inline)
+        }.onAppear {
+            viewModel.viewDidAppear()
         }
     }
 }

@@ -5,6 +5,7 @@
 //  Created by Pedro Seruca on 11/08/2021.
 //
 
+import Combine
 import Foundation
 
 class ProductDetailViewModel: ObservableObject {
@@ -20,25 +21,26 @@ class ProductDetailViewModel: ObservableObject {
         self.adidasAPI = adidasAPI
     }
 
+    @Published var reviewsViewModel: ProductReviewsViewModelProtocol = ProductReviewsViewModel(reviews: [])
+
     private(set) lazy var name = product.name.uppercased()
     private(set) lazy var description = product.description
     private(set) lazy var price = "\(product.price) " + product.currency
+    private var subscriptions: Set<AnyCancellable> = .init()
 
     func imageViewModel(for imageWidth: Float) -> AsyncImageViewModel {
         .init(imageLoader: imageLoader,
               imageWidth: Int(imageWidth))
     }
 
-    let reviewsViewModel: ProductReviewsViewModelProtocol = ProductReviewsViewModel(reviews:
-        [
-            ProductReview(productId: "HI333", locale: "en-us", rating: 0, text: "test"),
-            ProductReview(productId: "HI333", locale: "en-us", rating: 2, text: "test 2"),
-            ProductReview(productId: "HI333", locale: "en-us", rating: 7, text: "test 3"),
-            ProductReview(productId: "HI333", locale: "en-us", rating: 10, text: "test 4"),
-            ProductReview(productId: "HI333", locale: "en-us", rating: 0, text: "test"),
-            ProductReview(productId: "HI333", locale: "en-us", rating: 2, text: "test 2"),
-            ProductReview(productId: "HI333", locale: "en-us", rating: 7, text: "test 3"),
-            ProductReview(productId: "HI333", locale: "en-us", rating: 10, text: "test 4")
-        ]
-    )
+    func viewDidAppear() {
+        adidasAPI
+            .getReview(for: product.id)
+            .map { ProductReviewsViewModel(reviews: $0) }
+            .sink(receiveCompletion: { error in
+                print(error)
+            }, receiveValue: { [weak self] response in
+                self?.reviewsViewModel = response
+            }).store(in: &subscriptions)
+    }
 }
