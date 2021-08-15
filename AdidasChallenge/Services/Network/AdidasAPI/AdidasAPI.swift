@@ -8,7 +8,7 @@
 import Combine
 import Foundation
 
-class AdidasAPI: AdidasAPIProtocol {
+class AdidasAPI {
     let serviceManager: ServiceManagerProtocol
 
     init(serviceManager: ServiceManagerProtocol) {

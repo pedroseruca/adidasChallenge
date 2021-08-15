@@ -7,7 +7,11 @@
 
 import Combine
 
-extension AdidasAPI {
+protocol AdidasAPIProductsProtocol {
+    func getProducts() -> AnyPublisher<Products, Error>
+}
+
+extension AdidasAPI: AdidasAPIProductsProtocol {
     func getProducts() -> AnyPublisher<Products, Error> {
         let endpoint = Endpoint(port: 3001,
                                 path: .products,

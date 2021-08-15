@@ -8,7 +8,12 @@
 import Combine
 import Foundation
 
-extension AdidasAPI {
+protocol AdidasAPIReviewsProtocol {
+    func getReview(for productId: String) -> AnyPublisher<ProductReviews, Error>
+    func postReview(for productId: String, review: ProductReview) -> AnyPublisher<Void, Error>
+}
+
+extension AdidasAPI: AdidasAPIReviewsProtocol {
     func getReview(for productId: String) -> AnyPublisher<ProductReviews, Error> {
         let endpoint = Endpoint(port: 3002,
                                 path: .reviews(productId: productId),

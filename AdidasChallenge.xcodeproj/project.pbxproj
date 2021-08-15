@@ -44,7 +44,6 @@
 		12C683B526C8542E00C1597E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C683B326C8542E00C1597E /* Constants.swift */; };
 		12C683B726C90D1800C1597E /* AdidasAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C683B626C90D1800C1597E /* AdidasAPI.swift */; };
 		12C683B926C9178B00C1597E /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C683B826C9178B00C1597E /* Endpoint.swift */; };
-		12C683BC26C9300D00C1597E /* AdidasAPIProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C683BB26C9300D00C1597E /* AdidasAPIProtocol.swift */; };
 		12C683BE26C9305400C1597E /* AdidasAPI+Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C683BD26C9305400C1597E /* AdidasAPI+Products.swift */; };
 		12C683C026C9309300C1597E /* AdidasAPI+Reviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C683BF26C9309300C1597E /* AdidasAPI+Reviews.swift */; };
 /* End PBXBuildFile section */
@@ -110,7 +109,6 @@
 		12C683B326C8542E00C1597E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		12C683B626C90D1800C1597E /* AdidasAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdidasAPI.swift; sourceTree = "<group>"; };
 		12C683B826C9178B00C1597E /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
-		12C683BB26C9300D00C1597E /* AdidasAPIProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdidasAPIProtocol.swift; sourceTree = "<group>"; };
 		12C683BD26C9305400C1597E /* AdidasAPI+Products.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AdidasAPI+Products.swift"; sourceTree = "<group>"; };
 		12C683BF26C9309300C1597E /* AdidasAPI+Reviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AdidasAPI+Reviews.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -387,7 +385,6 @@
 				12C683B626C90D1800C1597E /* AdidasAPI.swift */,
 				12C683BD26C9305400C1597E /* AdidasAPI+Products.swift */,
 				12C683BF26C9309300C1597E /* AdidasAPI+Reviews.swift */,
-				12C683BB26C9300D00C1597E /* AdidasAPIProtocol.swift */,
 			);
 			path = AdidasAPI;
 			sourceTree = "<group>";
@@ -543,7 +540,6 @@
 				12C6839A26C5CB0100C1597E /* ProductReviewsViewModelProtocol.swift in Sources */,
 				12C6838026C48D1800C1597E /* ProductDetailViewModel.swift in Sources */,
 				12C683AD26C7345300C1597E /* View+Extensions.swift in Sources */,
-				12C683BC26C9300D00C1597E /* AdidasAPIProtocol.swift in Sources */,
 				12C6837B26C47E7C00C1597E /* ProductListViewModel.swift in Sources */,
 				12C6836526C1E28200C1597E /* ProductReview.swift in Sources */,
 				12C683BE26C9305400C1597E /* AdidasAPI+Products.swift in Sources */,
