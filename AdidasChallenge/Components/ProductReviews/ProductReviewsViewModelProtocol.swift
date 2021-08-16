@@ -14,5 +14,8 @@ protocol ProductReviewsViewModelProtocol {
     var ratingsCount: String { get }
     var ratingsCountValue: Int { get }
     
+    var addReviewButtonTitle: String { get }
     var noReviewsMessage: String { get }
+    
+    var addReviewViewModel: AddReviewViewModel { get }
 }

@@ -50,6 +50,9 @@
 		12C683C926C9BF1B00C1597E /* ProductCellFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C683C826C9BF1B00C1597E /* ProductCellFactory.swift */; };
 		12C683CB26C9BF3100C1597E /* ProductDetailFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C683CA26C9BF3100C1597E /* ProductDetailFactory.swift */; };
 		12C683CE26C9D2C500C1597E /* PrimaryButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C683CD26C9D2C500C1597E /* PrimaryButtonStyle.swift */; };
+		12C683D126C9D7AC00C1597E /* AddReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C683D026C9D7AC00C1597E /* AddReviewView.swift */; };
+		12C683D326C9E0D800C1597E /* AddReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C683D226C9E0D800C1597E /* AddReviewViewModel.swift */; };
+		12C683D526C9EDC900C1597E /* ProductReviewsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C683D426C9EDC900C1597E /* ProductReviewsFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +122,9 @@
 		12C683C826C9BF1B00C1597E /* ProductCellFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCellFactory.swift; sourceTree = "<group>"; };
 		12C683CA26C9BF3100C1597E /* ProductDetailFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailFactory.swift; sourceTree = "<group>"; };
 		12C683CD26C9D2C500C1597E /* PrimaryButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonStyle.swift; sourceTree = "<group>"; };
+		12C683D026C9D7AC00C1597E /* AddReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewView.swift; sourceTree = "<group>"; };
+		12C683D226C9E0D800C1597E /* AddReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewViewModel.swift; sourceTree = "<group>"; };
+		12C683D426C9EDC900C1597E /* ProductReviewsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductReviewsFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,9 +234,10 @@
 		12C6836B26C1EE0200C1597E /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				12C683CF26C9D73100C1597E /* AddReviewView */,
 				12C6833626C1ABF900C1597E /* AdidasChallengeApp.swift */,
 				12C6837926C47E6100C1597E /* ProductListView */,
-				12C6837C26C48CEF00C1597E /* ProductView */,
+				12C6837C26C48CEF00C1597E /* ProductDetailView */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -298,13 +305,13 @@
 			path = ProductListView;
 			sourceTree = "<group>";
 		};
-		12C6837C26C48CEF00C1597E /* ProductView */ = {
+		12C6837C26C48CEF00C1597E /* ProductDetailView */ = {
 			isa = PBXGroup;
 			children = (
 				12C6837D26C48D0200C1597E /* ProductDetailView.swift */,
 				12C6837F26C48D1800C1597E /* ProductDetailViewModel.swift */,
 			);
-			path = ProductView;
+			path = ProductDetailView;
 			sourceTree = "<group>";
 		};
 		12C6838D26C5C93600C1597E /* ProductReviews */ = {
@@ -405,6 +412,7 @@
 				12C683C626C9BF0300C1597E /* ProductListFactory.swift */,
 				12C683C826C9BF1B00C1597E /* ProductCellFactory.swift */,
 				12C683CA26C9BF3100C1597E /* ProductDetailFactory.swift */,
+				12C683D426C9EDC900C1597E /* ProductReviewsFactory.swift */,
 			);
 			path = Factories;
 			sourceTree = "<group>";
@@ -415,6 +423,15 @@
 				12C683CD26C9D2C500C1597E /* PrimaryButtonStyle.swift */,
 			);
 			path = ButtonStyles;
+			sourceTree = "<group>";
+		};
+		12C683CF26C9D73100C1597E /* AddReviewView */ = {
+			isa = PBXGroup;
+			children = (
+				12C683D026C9D7AC00C1597E /* AddReviewView.swift */,
+				12C683D226C9E0D800C1597E /* AddReviewViewModel.swift */,
+			);
+			path = AddReviewView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -570,18 +587,21 @@
 				12C683AD26C7345300C1597E /* View+Extensions.swift in Sources */,
 				12C6837B26C47E7C00C1597E /* ProductListViewModel.swift in Sources */,
 				12C6836526C1E28200C1597E /* ProductReview.swift in Sources */,
+				12C683D526C9EDC900C1597E /* ProductReviewsFactory.swift in Sources */,
 				12C683BE26C9305400C1597E /* AdidasAPI+Products.swift in Sources */,
 				12C683AA26C7338B00C1597E /* SearchBar.swift in Sources */,
 				12C6838626C5C34300C1597E /* ImageLoaderState.swift in Sources */,
 				12C6838226C5641C00C1597E /* AsyncImageViewModel.swift in Sources */,
 				12C6837426C2D6C300C1597E /* ProductCell.swift in Sources */,
 				12C6833726C1ABF900C1597E /* AdidasChallengeApp.swift in Sources */,
+				12C683D326C9E0D800C1597E /* AddReviewViewModel.swift in Sources */,
 				12C6839626C5C9FB00C1597E /* ProductReviewCellViewModelProtocol.swift in Sources */,
 				12C683C326C9B2B600C1597E /* AdidasFactory.swift in Sources */,
 				12C683B726C90D1800C1597E /* AdidasAPI.swift in Sources */,
 				12C683CE26C9D2C500C1597E /* PrimaryButtonStyle.swift in Sources */,
 				12C683C726C9BF0300C1597E /* ProductListFactory.swift in Sources */,
 				12C683A426C6B81A00C1597E /* ProductReviewsContent.swift in Sources */,
+				12C683D126C9D7AC00C1597E /* AddReviewView.swift in Sources */,
 				12C683B926C9178B00C1597E /* Endpoint.swift in Sources */,
 				12C683B426C8542E00C1597E /* ServiceManager.swift in Sources */,
 				12C683C926C9BF1B00C1597E /* ProductCellFactory.swift in Sources */,

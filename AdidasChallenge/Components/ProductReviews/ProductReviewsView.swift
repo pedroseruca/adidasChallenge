@@ -21,7 +21,10 @@ struct ProductReviewsView: View {
             ProductReviewsContent(viewModel: viewModel)
             HStack {
                 Spacer()
-                Button("Add review") {
+                NavigationLink(destination:
+                    AddReviewView(viewModel: viewModel.addReviewViewModel)
+                ) {
+                    Text(viewModel.addReviewButtonTitle)
                 }
                 .padding()
                 .buttonStyle(PrimaryButtonStyle(color: .black))

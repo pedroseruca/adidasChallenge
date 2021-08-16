@@ -39,6 +39,25 @@ extension AdidasFactory: ProductDetailFactory {
         let imageLoader = makeImageLoader(for: product)
         return ProductDetailViewModel(product: product,
                                       imageLoader: imageLoader,
-                                      adidasAPI: adidasAPI)
+                                      adidasAPI: adidasAPI,
+                                      factory: self)
+    }
+}
+
+extension AdidasFactory: ProductReviewsFactory {
+    func makeProductReviewsViewModel(for product: Product,
+                                     with reviews: ProductReviews,
+                                     onReviewSubmitted: @escaping () -> Void) -> ProductReviewsViewModel {
+        ProductReviewsViewModel(
+            product: product,
+            reviews: reviews,
+            factory: self,
+            onReviewSubmitted: onReviewSubmitted)
+    }
+
+    func makeAddReviewViewModel(for product: Product, onReviewSubmitted: @escaping () -> Void) -> AddReviewViewModel {
+        AddReviewViewModel(product: product,
+                           adidasAPI: adidasAPI,
+                           onReviewSubmitted: onReviewSubmitted)
     }
 }
