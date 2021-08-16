@@ -7,6 +7,7 @@
 
 import Combine
 import Foundation
+import os
 
 class ProductListViewModel: ObservableObject {
     // MARK: Private Properties
@@ -75,8 +76,12 @@ class ProductListViewModel: ObservableObject {
             .getProducts()
             .sink(receiveCompletion: { [weak self] error in
                 switch error {
-                case .failure(_):
+                case let .failure(errorContent):
                     self?.showingAlert = true
+                    
+                    let text: StaticString = "getProducts request gave an error. Error: %@"
+                    let errorString = "\(errorContent)"
+                    os_log(text, type: .error, errorString)
                 default:
                     break
                 }

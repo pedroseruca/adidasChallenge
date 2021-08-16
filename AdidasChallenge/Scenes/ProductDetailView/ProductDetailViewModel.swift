@@ -7,6 +7,7 @@
 
 import Combine
 import Foundation
+import os
 
 class ProductDetailViewModel: ObservableObject {
     // MARK: Private Properties
@@ -70,8 +71,13 @@ class ProductDetailViewModel: ObservableObject {
             }
             .sink { [weak self] error in
                 switch error {
-                case .failure(_):
+                case let .failure(errorContent):
                     self?.showingAlert = true
+                    
+                    let text: StaticString = "getReview request gave an error for product: %@. Error: %@"
+                    let errorString = "\(errorContent)"
+                    guard let productID = self?.product.id else { return }
+                    os_log(text, type: .error, productID, errorString)
                 default:
                     break
                 }

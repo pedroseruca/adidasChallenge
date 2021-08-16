@@ -7,6 +7,7 @@
 
 import Combine
 import UIKit
+import os
 
 protocol ImageLoaderProtocol {
     var statePublisher: Published<ImageLoaderState>.Publisher { get }
@@ -38,6 +39,10 @@ class ImageLoader: ImageLoaderProtocol {
         if state != .initial { return }
         guard let url = transformUrl(with: imageWidth) else {
             state = .failure(ImageLoaderError.urlNotValid)
+            
+            let text: StaticString = "transformUrl method couldn't transform image url for needed size. Original url: %@. Size width requested: %@"
+            let imageWidth = imageWidth != nil ? String(describing: imageWidth) : "none"
+            os_log(text, type: .error, urlString, imageWidth)
             return
         }
         

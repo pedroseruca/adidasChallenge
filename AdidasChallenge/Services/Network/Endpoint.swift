@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import os
 
 protocol EndpointProtocol {
     var request: URLRequest? { get }
@@ -44,6 +45,9 @@ struct Endpoint {
         urlComponents.path = path.rawValue
         guard let url = urlComponents.url else {
             assertionFailure("⚠️ This should never happen. Couldn't make URLRequest from Endpoint.")
+            let text: StaticString = "Couln't convert URLComponents to url. Scheme: %@, host: %@, port: %@, path: %@"
+            let port = port != nil ? String(describing: port) : "none"
+            os_log(text, type: .error, scheme, host, port, path.rawValue)
             return nil
         }
 
