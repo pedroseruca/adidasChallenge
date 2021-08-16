@@ -28,14 +28,18 @@ class ProductListViewModel: ObservableObject {
          factory: ProductCellFactory & ProductDetailFactory) {
         self.adidasAPI = adidasAPI
         self.factory = factory
-        updateFilteredProducts()
     }
 
     // MARK: Public Properties
 
-    @Published var models: [ProductListModel] = []
+    @Published var models: [ProductListModel]? = nil {
+        didSet {
+            showNoProductsMessage = models?.isEmpty ?? false
+        }
+    }
     let navigationTitle = "Search"
-    private(set) lazy var noProductsMessage: String? = products.isEmpty ? noProductsText : nil
+    private(set) var showNoProductsMessage = false
+    private(set) lazy var noProductsMessage: String = noProductsText
 
     // MARK: Public Methods
 
@@ -52,15 +56,14 @@ class ProductListViewModel: ObservableObject {
 
     func searchProduct(for searchText: String) {
         if searchText.isEmpty {
+            noProductsMessage = noProductsText
             resetFilteredProducts()
         } else {
+            noProductsMessage = noFilteredProductsText
             filteredProducts = products
                 .filter { product in
                     product.search(on: [\.name, \.description], for: searchText)
                 }
-            if filteredProducts.isEmpty {
-                noProductsMessage = noFilteredProductsText
-            }
             updateFilteredProducts()
         }
     }
@@ -86,7 +89,6 @@ class ProductListViewModel: ObservableObject {
 
     private func resetFilteredProducts() {
         filteredProducts = products
-        noProductsMessage = products.isEmpty ? noProductsText : nil
         updateFilteredProducts()
     }
 }

@@ -29,24 +29,29 @@ struct ProductListView: View {
                 }
                 .padding(.horizontal)
 
-                ScrollView {
-                    LazyVStack {
-                        // TODO: this is logic. Add a showMessage variable on VM
-                        if let message = viewModel.noProductsMessage {
-                            Text(message)
-                        }
-                        ForEach(viewModel.models) { model in
-                            let detailView = ProductDetailView(viewModel: model.detailViewModel)
-                            NavigationLink(destination: detailView) {
-                                ProductCell(viewModel: model.cellViewModelProtocol)
-
-                            }.buttonStyle(PlainButtonStyle())
-                        }
-                    }
+                if viewModel.showNoProductsMessage {
+                    Text(viewModel.noProductsMessage)
                 }
-                .navigationBarTitle(Text(viewModel.navigationTitle))
-                .resignKeyboardOnDragGesture()
-            }
+                
+                if let models = viewModel.models {
+                    ScrollView {
+                        LazyVStack {
+                            ForEach(models) { model in
+                                let detailView = ProductDetailView(viewModel: model.detailViewModel)
+                                NavigationLink(destination: detailView) {
+                                    ProductCell(viewModel: model.cellViewModelProtocol)
+
+                                }.buttonStyle(PlainButtonStyle())
+                            }
+                        }
+                    }.resignKeyboardOnDragGesture()
+                } else {
+                    ProgressView()
+                        .padding()
+                        .scaleEffect(Constants.Style.ProductListView.progressViewScale)
+                }
+                Spacer()
+            }.navigationBarTitle(Text(viewModel.navigationTitle))
         }.onAppear {
             viewModel.viewDidAppear()
         }

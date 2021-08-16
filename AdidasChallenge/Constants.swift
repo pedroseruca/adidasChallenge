@@ -50,6 +50,10 @@ enum Constants {
             }
         }
         
+        enum ProductListView {
+            static let progressViewScale: CGFloat = 2
+        }
+        
         enum ProductDetailView {
             static let progressViewPadding: CGFloat = 10
             static let progressViewScale: CGFloat = 2
