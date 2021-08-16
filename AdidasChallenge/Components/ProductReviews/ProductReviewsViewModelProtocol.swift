@@ -6,10 +6,8 @@
 //
 
 protocol ProductReviewsViewModelProtocol {
-    var indices: Range<Int> { get }
-    
-    func productReviewCellViewModel(for index: Int) -> ProductReviewCellViewModelProtocol
-    
+    var models: [ProductReviewCellViewModel] { get }
+        
     var averageRating: String { get }
     var ratingsCount: String { get }
     var ratingsCountValue: Int { get }

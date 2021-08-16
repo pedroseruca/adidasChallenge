@@ -19,8 +19,7 @@ struct ProductReviewsContent: View {
             Text(viewModel.noReviewsMessage)
                 .padding(.all, 15)
         } else {
-            List(viewModel.indices) { index in
-                let viewModel = viewModel.productReviewCellViewModel(for: index)
+            List(viewModel.models, id: \.id) { viewModel in
                 ProductReviewCell(viewModel: viewModel)
             }
             // SwiftUI weird separators not aligned

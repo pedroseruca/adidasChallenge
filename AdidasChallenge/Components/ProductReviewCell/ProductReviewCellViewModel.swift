@@ -5,8 +5,11 @@
 //  Created by Pedro Seruca on 12/08/2021.
 //
 
+import Foundation
+
 class ProductReviewCellViewModel: ProductReviewCellViewModelProtocol {
     private let review: ProductReview
+    let id = UUID()
     
     init(review: ProductReview) {
         self.review = review

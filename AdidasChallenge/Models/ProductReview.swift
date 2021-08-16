@@ -7,10 +7,7 @@
 
 // MARK: - ProductReview
 
-import Foundation
-
 struct ProductReview: Codable {
-    let id = UUID()
     let productId: String
     let locale: String
     let rating: Int
