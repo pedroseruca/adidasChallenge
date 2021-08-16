@@ -29,27 +29,27 @@ struct ProductReviewsHeader: View {
         }
     }
 }
-
-struct ProductReviewsHeader_Previews: PreviewProvider {
-    private static let viewModel = ProductReviewsViewModel(reviews: [
-        makeReview(rating: 0),
-        makeReview(rating: 2),
-        makeReview(rating: 7),
-        makeReview(rating: 10),
-        makeReview(rating: 0),
-        makeReview(rating: 2),
-        makeReview(rating: 7),
-        makeReview(rating: 10),
-    ])
-    static func makeReview(rating: Int) -> ProductReview {
-        ProductReview(productId: "HI333", locale: "en-us", rating: rating, text: "test")
-    }
-
-    static var previews: some View {
-        ProductReviewsHeader(viewModel: viewModel)
-            .previewLayout(.sizeThatFits)
-
-        ProductReviewsHeader(viewModel: ProductReviewsViewModel(reviews: []))
-            .previewLayout(.sizeThatFits)
-    }
-}
+//
+//struct ProductReviewsHeader_Previews: PreviewProvider {
+//    private static let viewModel = ProductReviewsViewModel(reviews: [
+//        makeReview(rating: 0),
+//        makeReview(rating: 2),
+//        makeReview(rating: 7),
+//        makeReview(rating: 10),
+//        makeReview(rating: 0),
+//        makeReview(rating: 2),
+//        makeReview(rating: 7),
+//        makeReview(rating: 10),
+//    ])
+//    static func makeReview(rating: Int) -> ProductReview {
+//        ProductReview(productId: "HI333", locale: "en-us", rating: rating, text: "test")
+//    }
+//
+//    static var previews: some View {
+//        ProductReviewsHeader(viewModel: viewModel)
+//            .previewLayout(.sizeThatFits)
+//
+//        ProductReviewsHeader(viewModel: ProductReviewsViewModel(reviews: []))
+//            .previewLayout(.sizeThatFits)
+//    }
+//}

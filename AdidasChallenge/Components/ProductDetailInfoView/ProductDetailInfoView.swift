@@ -30,43 +30,43 @@ struct ProductDetailInfoView: View {
     }
 }
 
-struct ProductDetailInfoView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProductDetailInfoView(viewModel: viewModel)
-            .previewLayout(.sizeThatFits)
-    }
-}
-
-private extension ProductDetailInfoView_Previews {
-    struct MockAdidasAPI: AdidasAPIReviewsProtocol {
-        let reviews: ProductReviews
-        func getReview(for productId: String) -> AnyPublisher<ProductReviews, Error> {
-            Future { $0(.success(reviews)) }
-                .eraseToAnyPublisher()
-        }
-
-        func postReview(for productId: String, review: ProductReview) -> AnyPublisher<Void, Error> {
-            Future { $0(.success(())) }
-                .eraseToAnyPublisher()
-        }
-    }
-    
-    static let product = Product(
-        id: "HI333",
-        name: "Sapatos Forum 84 BB",
-        description: "Description Description",
-        currency: "$",
-        price: 160,
-        imgUrl: ""
-    )
-    static let viewModel = makeViewModel(with: product)
-}
-
-private extension ProductDetailInfoView_Previews {
-    static func makeViewModel(with product: Product) -> ProductDetailViewModel {
-        let imageLoader = ImageLoader(for: product.imgUrl)
-        return ProductDetailViewModel(product: product,
-                                      imageLoader: imageLoader,
-                                      adidasAPI: MockAdidasAPI(reviews: []))
-    }
-}
+//struct ProductDetailInfoView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ProductDetailInfoView(viewModel: viewModel)
+//            .previewLayout(.sizeThatFits)
+//    }
+//}
+//
+//private extension ProductDetailInfoView_Previews {
+//    struct MockAdidasAPI: AdidasAPIReviewsProtocol {
+//        let reviews: ProductReviews
+//        func getReview(for productId: String) -> AnyPublisher<ProductReviews, Error> {
+//            Future { $0(.success(reviews)) }
+//                .eraseToAnyPublisher()
+//        }
+//
+//        func postReview(for productId: String, review: ProductReview) -> AnyPublisher<Void, Error> {
+//            Future { $0(.success(())) }
+//                .eraseToAnyPublisher()
+//        }
+//    }
+//    
+//    static let product = Product(
+//        id: "HI333",
+//        name: "Sapatos Forum 84 BB",
+//        description: "Description Description",
+//        currency: "$",
+//        price: 160,
+//        imgUrl: ""
+//    )
+//    static let viewModel = makeViewModel(with: product)
+//}
+//
+//private extension ProductDetailInfoView_Previews {
+//    static func makeViewModel(with product: Product) -> ProductDetailViewModel {
+//        let imageLoader = ImageLoader(for: product.imgUrl)
+//        return ProductDetailViewModel(product: product,
+//                                      imageLoader: imageLoader,
+//                                      adidasAPI: MockAdidasAPI(reviews: []))
+//    }
+//}
