@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// info: This is mostly code from StackOverflow. For that reason, I keep it as it was, without moving the style or VM.
 struct SearchBar: View {
     // TODO: leak here
     var onSearchText: (String) -> Void

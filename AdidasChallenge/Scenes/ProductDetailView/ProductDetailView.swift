@@ -9,6 +9,10 @@ import Combine
 import SwiftUI
 
 struct ProductDetailView: View {
+    // MARK: Inner types
+    
+    private typealias Style = Constants.Style.ProductDetailView
+    
     // MARK: Private Properties
 
     @ObservedObject private var viewModel: ProductDetailViewModel
@@ -28,17 +32,17 @@ struct ProductDetailView: View {
             VStack {
                 AsyncImage(viewModel: viewModel.imageViewModel(for: Float(width))) {
                     ProgressView()
-                        .padding(.bottom, 10)
+                        .padding(.bottom, Style.progressViewPadding)
                         .frame(width: width, height: width)
-                        .scaleEffect(2)
+                        .scaleEffect(Style.progressViewScale)
                 } image: { image in
                     Image(uiImage: image)
                         .frame(width: width, height: width)
 
                 } error: { _ in
-                    Image("NoImageAvailable")
+                    Image(Style.noImageAsset)
                         .resizable()
-                        .frame(width: 300, height: 300)
+                        .frame(width: Style.noImageSize, height: Style.noImageSize)
                         .padding(.top, geometry.safeAreaInsets.top)
                 }
 

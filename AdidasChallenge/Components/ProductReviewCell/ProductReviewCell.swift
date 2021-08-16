@@ -26,7 +26,7 @@ struct ProductReviewCell: View {
                 .font(.title2)
                 .fontWeight(.medium)
                 .foregroundColor(.gray)
-                .frame(minWidth: 25)
+                .frame(minWidth: Constants.Style.ProductReviewCell.minWidth)
             Text(viewModel.text)
         }
     }

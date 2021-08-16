@@ -23,7 +23,7 @@ struct ProductReviewsHeader: View {
 
     var body: some View {
         HStack(spacing: 0) {
-            Text("Reviews")
+            Text(viewModel.headerTitle)
                 .font(.title2)
                 .fontWeight(.medium)
             Spacer()

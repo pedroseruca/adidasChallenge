@@ -8,14 +8,16 @@
 import SwiftUI
 
 struct ProductCell: View {
+    // MARK: Inner types
+    
+    private typealias Style = Constants.Style.ProductCell
+    
     // MARK: Private Properties
 
     private let viewModel: ProductCellViewModelProtocol
-    // TODO: Make a file for styles
-    private let imageSize: CGFloat = 120
-    private let padding: CGFloat = 5
-    private let imageLeadingPadding: CGFloat = 10
-    private let imageCornerRadius: CGFloat = 5
+
+    private let imageSize = Style.imageSize
+    private let padding = Style.padding
 
     // MARK: Lifecycle
 
@@ -29,22 +31,21 @@ struct ProductCell: View {
         HStack {
             AsyncImage(viewModel: viewModel.imageViewModel) {
                 ProgressView()
-                    .padding(.trailing, 10)
-                    .padding(.bottom, 10)
+                    .padding(.trailing, padding)
+                    .padding(.bottom, padding)
                     .frame(width: imageSize, height: imageSize)
-                    .scaleEffect(1.5)
+                    .scaleEffect(Style.progressViewScale)
 
             } image: { image in
                 Image(uiImage: image)
                     .resizable()
                     .frame(width: imageSize, height: imageSize)
-                    .cornerRadius(imageCornerRadius)
+                    .cornerRadius(Style.imageCornerRadius)
             } error: { _ in
-                // TODO: Make a file for assets names
-                Image("NoImageAvailable")
+                Image(Style.noImageAsset)
                     .resizable()
                     .frame(width: imageSize, height: imageSize)
-            }.padding(.leading, imageLeadingPadding)
+            }.padding(.leading, Style.imageLeadingPadding)
 
             ProductCellInfoView(viewModel: viewModel)
             Spacer()

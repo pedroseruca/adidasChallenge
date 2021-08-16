@@ -9,6 +9,10 @@ import Combine
 import SwiftUI
 
 struct AddReviewView: View {
+    // MARK: InnerTypes
+    
+    private typealias Style = Constants.Style.AddReviewView
+    
     // MARK: Private Properties
 
     private var viewModel: AddReviewViewModel
@@ -31,7 +35,7 @@ struct AddReviewView: View {
         VStack(alignment: .leading) {
             Text(viewModel.titleLabel)
                 .font(.title2)
-                .padding(.bottom, 10)
+                .padding(.bottom, Style.titlePadding)
             HStack {
                 Text("\(ratingRound)")
                     .font(.title2)
@@ -40,17 +44,17 @@ struct AddReviewView: View {
             Text(viewModel.shareOpinionLabel)
                 .font(.title3)
             TextEditor(text: $text)
-                .frame(maxHeight: 300)
+                .frame(maxHeight: Style.TextEditor.maxHeight)
                 .padding()
                 .overlay(
-                    RoundedRectangle(cornerRadius: 8)
-                        .stroke(Color.gray, lineWidth: 1.5)
+                    RoundedRectangle(cornerRadius: Style.TextEditor.cornerRadius)
+                        .stroke(Color.gray, lineWidth: Style.TextEditor.lineWidth)
                 )
             Button(viewModel.buttonTitle) {
                 viewModel.buttonPressed(rating: ratingRound, text: text)
             }
-            .padding(0)
-            .buttonStyle(PrimaryButtonStyle(color: .black))
+            .padding(Style.buttonBorderPadding)
+            .buttonStyle(PrimaryButtonStyle(color: Style.buttonBorderColor))
 
             Spacer()
         }

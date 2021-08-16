@@ -24,7 +24,7 @@ struct ProductReviewsContent: View {
     var body: some View {
         if viewModel.ratingsCountValue == 0 {
             Text(viewModel.noReviewsMessage)
-                .padding(.all, 15)
+                .padding(.all, Constants.Style.ProductReviewsContent.padding)
         } else {
             List(viewModel.models, id: \.id) { viewModel in
                 ProductReviewCell(viewModel: viewModel)

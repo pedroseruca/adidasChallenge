@@ -24,7 +24,7 @@ struct ProductReviewsView: View {
     var body: some View {
         VStack(alignment: .leading) {
             ProductReviewsHeader(viewModel: viewModel)
-                .padding(.horizontal, 15)
+                .padding(.horizontal, Constants.Style.ProductReviewsView.productReviewsHeaderPadding)
             ProductReviewsContent(viewModel: viewModel)
             HStack {
                 Spacer()
@@ -35,7 +35,7 @@ struct ProductReviewsView: View {
                 }
                 .padding()
                 .buttonStyle(PrimaryButtonStyle(color: .black))
-            }
+            }.background(Color.clear)
         }
     }
 }

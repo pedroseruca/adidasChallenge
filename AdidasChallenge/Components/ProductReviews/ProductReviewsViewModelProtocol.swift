@@ -8,6 +8,8 @@
 protocol ProductReviewsViewModelProtocol {
     var models: [ProductReviewCellViewModel] { get }
         
+    var headerTitle: String { get }
+    
     var averageRating: String { get }
     var ratingsCount: String { get }
     var ratingsCountValue: Int { get }

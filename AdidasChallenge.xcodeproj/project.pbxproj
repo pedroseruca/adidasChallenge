@@ -175,6 +175,7 @@
 		12C6833526C1ABF900C1597E /* AdidasChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				12C683B326C8542E00C1597E /* Constants.swift */,
 				12C683C126C9B28200C1597E /* Factories */,
 				12C683AB26C7342D00C1597E /* Extensions */,
 				12C6836F26C28E0000C1597E /* Services */,
@@ -388,7 +389,6 @@
 			isa = PBXGroup;
 			children = (
 				12C683BA26C92FE100C1597E /* AdidasAPI */,
-				12C683B326C8542E00C1597E /* Constants.swift */,
 				12C683B226C8542E00C1597E /* ServiceManager.swift */,
 				12C683B826C9178B00C1597E /* Endpoint.swift */,
 			);

@@ -36,6 +36,7 @@ class ProductReviewsViewModel: ProductReviewsViewModelProtocol {
 
     // MARK: Public Properties
 
+    let headerTitle = "Reviews"
     private(set) lazy var models = reviews.map { ProductReviewCellViewModel(review: $0) }
     var addReviewViewModel: AddReviewViewModel {
         factory.makeAddReviewViewModel(for: product,
