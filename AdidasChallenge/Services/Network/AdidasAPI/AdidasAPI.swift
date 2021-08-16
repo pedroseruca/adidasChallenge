@@ -9,7 +9,11 @@ import Combine
 import Foundation
 
 class AdidasAPI {
+    // MARK: Public Properties
+
     let serviceManager: ServiceManagerProtocol
+
+    // MARK: Lifecycle
 
     init(serviceManager: ServiceManagerProtocol) {
         self.serviceManager = serviceManager

@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ProductCell: View {
+    // MARK: Private Properties
+
     private let viewModel: ProductCellViewModelProtocol
     // TODO: Make a file for styles
     private let imageSize: CGFloat = 120
@@ -15,9 +17,13 @@ struct ProductCell: View {
     private let imageLeadingPadding: CGFloat = 10
     private let imageCornerRadius: CGFloat = 5
 
+    // MARK: Lifecycle
+
     init(viewModel: ProductCellViewModelProtocol) {
         self.viewModel = viewModel
     }
+
+    // MARK: Public Properties
 
     var body: some View {
         HStack {
@@ -27,7 +33,7 @@ struct ProductCell: View {
                     .padding(.bottom, 10)
                     .frame(width: imageSize, height: imageSize)
                     .scaleEffect(1.5)
-                    
+
             } image: { image in
                 Image(uiImage: image)
                     .resizable()
@@ -45,6 +51,8 @@ struct ProductCell: View {
         }.contentShape(Rectangle())
     }
 }
+
+// MARK: SwiftUI Previews
 
 struct ProductCell_Previews: PreviewProvider {
     static var previews: some View {
@@ -99,6 +107,7 @@ private extension ProductCell_Previews {
         func load(with imageWidth: Int?) {
         }
     }
+
     private static let product3 = Product(
         id: "HI333",
         name: "Cassina pt",

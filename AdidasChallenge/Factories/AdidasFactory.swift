@@ -8,13 +8,20 @@
 import Foundation
 
 class AdidasFactory {
-    let serviceManager: ServiceManagerProtocol
+    // MARK: Private Properties
+
+    private let serviceManager: ServiceManagerProtocol
+
+    private lazy var adidasAPI = AdidasAPI(serviceManager: serviceManager)
+
+    // MARK: Lifecycle
 
     init(serviceManager: ServiceManagerProtocol) {
         self.serviceManager = serviceManager
     }
 
-    private lazy var adidasAPI = AdidasAPI(serviceManager: serviceManager)
+    // MARK: Private Methods
+
     private func makeImageLoader(for product: Product) -> ImageLoaderProtocol {
         ImageLoader(for: product.imgUrl)
     }

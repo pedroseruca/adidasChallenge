@@ -9,18 +9,23 @@ import Combine
 import SwiftUI
 
 struct AddReviewView: View {
-    @Environment(\.presentationMode) var presentation
+    // MARK: Private Properties
 
     private var viewModel: AddReviewViewModel
+
+    @Environment(\.presentationMode) private var presentation
+    private var ratingRound: Int { Int(rating) }
+
+    // MARK: Lifecycle
 
     init(viewModel: AddReviewViewModel) {
         self.viewModel = viewModel
     }
 
+    // MARK: Public Properties
+
     @State private var text: String = ""
     @State private var rating: Float = 5
-
-    private var ratingRound: Int { Int(rating) }
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -57,6 +62,8 @@ struct AddReviewView: View {
         }
     }
 }
+
+// MARK: SwiftUI Previews
 
 struct AddReviewView_Previews: PreviewProvider {
     struct MockAdidasAPI: AdidasAPIReviewsProtocol {

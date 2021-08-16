@@ -9,11 +9,17 @@ import Combine
 import SwiftUI
 
 struct ProductListView: View {
+    // MARK: Private Properties
+
     @ObservedObject private var viewModel: ProductListViewModel
+
+    // MARK: Lifecycle
 
     init(viewModel: ProductListViewModel) {
         self.viewModel = viewModel
     }
+
+    // MARK: Public Properties
 
     var body: some View {
         NavigationView {
@@ -46,6 +52,8 @@ struct ProductListView: View {
         }
     }
 }
+
+// MARK: SwiftUI Previews
 
 struct InitialView_Previews: PreviewProvider {
     static var previews: some View {
@@ -90,14 +98,14 @@ private extension InitialView_Previews {
                 adidasAPI: InitialView_Previews.MockAdidasAPI(products: []),
                 factory: self)
         }
-        
+
         func makeProductReviewsViewModel(for product: Product, with reviews: ProductReviews, onReviewSubmitted: @escaping () -> Void) -> ProductReviewsViewModel {
             ProductReviewsViewModel(product: product,
                                     reviews: [],
                                     factory: self,
                                     onReviewSubmitted: {})
         }
-        
+
         func makeAddReviewViewModel(for product: Product, onReviewSubmitted: @escaping () -> Void) -> AddReviewViewModel {
             AddReviewViewModel(product: product,
                                adidasAPI: InitialView_Previews.MockAdidasAPI(products: []),

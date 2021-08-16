@@ -8,9 +8,15 @@
 import SwiftUI
 
 struct SearchBar: View {
+    // TODO: leak here
     var onSearchText: (String) -> Void
+
+    // MARK: Private Properties
+
     @State private var searchText: String = ""
     @State private var showCancelButton: Bool = false
+
+    // MARK: Public Properties
 
     var body: some View {
         HStack {
@@ -46,6 +52,8 @@ struct SearchBar: View {
         }
     }
 }
+
+// MARK: SwiftUI Previews
 
 struct SearchBar_Previews: PreviewProvider {
     @State static var searchText = ""

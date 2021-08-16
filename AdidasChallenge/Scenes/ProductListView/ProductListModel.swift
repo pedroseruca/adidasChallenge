@@ -6,7 +6,9 @@
 //
 
 struct ProductListModel: Identifiable {
-    var id: String
-    var cellViewModelProtocol: ProductCellViewModelProtocol
-    var detailViewModel: ProductDetailViewModel
+    // MARK: Public Properties
+
+    let id: String
+    let cellViewModelProtocol: ProductCellViewModelProtocol
+    let detailViewModel: ProductDetailViewModel
 }

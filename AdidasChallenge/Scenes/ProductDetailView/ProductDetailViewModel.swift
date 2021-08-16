@@ -9,10 +9,16 @@ import Combine
 import Foundation
 
 class ProductDetailViewModel: ObservableObject {
+    // MARK: Private Properties
+
     private let product: Product
     private let imageLoader: ImageLoaderProtocol
     private let adidasAPI: AdidasAPIReviewsProtocol
     private let factory: ProductReviewsFactory
+
+    private var subscriptions: Set<AnyCancellable> = .init()
+
+    // MARK: Lifecycle
 
     init(product: Product,
          imageLoader: ImageLoaderProtocol,
@@ -24,12 +30,15 @@ class ProductDetailViewModel: ObservableObject {
         self.factory = factory
     }
 
+    // MARK: Public Properties
+
     @Published var reviewsViewModel: ProductReviewsViewModelProtocol? = nil
 
     private(set) lazy var name = product.name.uppercased()
     private(set) lazy var description = product.description
     private(set) lazy var price = "\(product.price) " + product.currency
-    private var subscriptions: Set<AnyCancellable> = .init()
+
+    // MARK: Public Methods
 
     func imageViewModel(for imageWidth: Float) -> AsyncImageViewModel {
         .init(imageLoader: imageLoader,
@@ -39,6 +48,8 @@ class ProductDetailViewModel: ObservableObject {
     func viewDidAppear() {
         updateReviews()
     }
+
+    // MARK: Private Methods
 
     private func updateReviews() {
         adidasAPI

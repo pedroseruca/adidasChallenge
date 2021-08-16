@@ -12,13 +12,17 @@ protocol EndpointProtocol {
 }
 
 struct Endpoint {
-    let scheme: String
-    let host: String
-    let port: Int?
-    let path: EndpointPath
-    let method: EndpointMethod
-    
-    init(scheme: String  = "http",
+    // MARK: Private Properties
+
+    private let scheme: String
+    private let host: String
+    private let port: Int?
+    private let path: EndpointPath
+    private let method: EndpointMethod
+
+    // MARK: Lifecycle
+
+    init(scheme: String = "http",
          host: String = "localhost",
          port: Int? = nil,
          path: EndpointPath,
@@ -29,7 +33,9 @@ struct Endpoint {
         self.path = path
         self.method = method
     }
-    
+
+    // MARK: Public Properties
+
     var request: URLRequest? {
         var urlComponents = URLComponents()
         urlComponents.scheme = scheme

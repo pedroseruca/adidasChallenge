@@ -5,16 +5,22 @@
 //  Created by Pedro Seruca on 12/08/2021.
 //
 
-import SwiftUI
 import Combine
+import SwiftUI
 
 struct ProductDetailInfoView: View {
+    // MARK: Private Properties
+
     private let viewModel: ProductDetailViewModel
+
+    // MARK: Lifecycle
 
     init(viewModel: ProductDetailViewModel) {
         self.viewModel = viewModel
     }
 
+    // MARK: Public Properties
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             HStack(alignment: .firstTextBaseline) {
@@ -29,6 +35,8 @@ struct ProductDetailInfoView: View {
         }.padding(.all)
     }
 }
+
+// MARK: SwiftUI Previews
 
 struct ProductDetailInfoView_Previews: PreviewProvider {
     static var previews: some View {
@@ -50,7 +58,7 @@ private extension ProductDetailInfoView_Previews {
                 .eraseToAnyPublisher()
         }
     }
-    
+
     struct MockFactory: ProductReviewsFactory {
         func makeProductReviewsViewModel(for product: Product, with reviews: ProductReviews, onReviewSubmitted: @escaping () -> Void) -> ProductReviewsViewModel {
             ProductReviewsViewModel(product: product,
@@ -65,7 +73,7 @@ private extension ProductDetailInfoView_Previews {
                                onReviewSubmitted: {})
         }
     }
-    
+
     static let product = Product(
         id: "HI333",
         name: "Sapatos Forum 84 BB",

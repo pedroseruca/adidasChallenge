@@ -6,6 +6,8 @@
 //
 
 class ProductReviewsViewModel: ProductReviewsViewModelProtocol {
+    // MARK: Private Properties
+
     private let product: Product
     private let reviews: ProductReviews
     private let factory: ProductReviewsFactory
@@ -18,6 +20,10 @@ class ProductReviewsViewModel: ProductReviewsViewModelProtocol {
         return Double(ratingsSummedUp) / Double(ratingsCountValue)
     }()
 
+    private lazy var valuationsString = ratingsCountValue > 1 ? "valuations" : "valuation"
+
+    // MARK: Lifecycle
+
     init(product: Product,
          reviews: ProductReviews,
          factory: ProductReviewsFactory,
@@ -27,18 +33,18 @@ class ProductReviewsViewModel: ProductReviewsViewModelProtocol {
         self.factory = factory
         self.onReviewSubmitted = onReviewSubmitted
     }
-    
+
+    // MARK: Public Properties
+
     private(set) lazy var models = reviews.map { ProductReviewCellViewModel(review: $0) }
-
-    let addReviewButtonTitle = "Add review"
-    private(set) lazy var ratingsCountValue = reviews.count
-    private lazy var valuationsString = ratingsCountValue > 1 ? "valuations" : "valuation"
-    private(set) lazy var ratingsCount = "of \(ratingsCountValue) " + valuationsString
-    private(set) lazy var averageRating = String(format: "%.1f ", averageRatingValue)
-    private(set) lazy var noReviewsMessage = "No reviews for this product yet. Be the first to leave one"
-
     var addReviewViewModel: AddReviewViewModel {
         factory.makeAddReviewViewModel(for: product,
                                        onReviewSubmitted: onReviewSubmitted)
     }
+
+    let addReviewButtonTitle = "Add review"
+    private(set) lazy var ratingsCountValue = reviews.count
+    private(set) lazy var ratingsCount = "of \(ratingsCountValue) " + valuationsString
+    private(set) lazy var averageRating = String(format: "%.1f ", averageRatingValue)
+    private(set) lazy var noReviewsMessage = "No reviews for this product yet. Be the first to leave one"
 }

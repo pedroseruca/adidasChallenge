@@ -8,11 +8,17 @@
 import SwiftUI
 
 struct ProductReviewCell: View {
+    // MARK: Private Properties
+
     private let viewModel: ProductReviewCellViewModelProtocol
+
+    // MARK: Lifecycle
 
     init(viewModel: ProductReviewCellViewModelProtocol) {
         self.viewModel = viewModel
     }
+
+    // MARK: Public Properties
 
     var body: some View {
         HStack {
@@ -25,6 +31,8 @@ struct ProductReviewCell: View {
         }
     }
 }
+
+// MARK: SwiftUI Previews
 
 struct ProductReviewCell_Previews: PreviewProvider {
     private static let review = ProductReview(productId: "HI333", locale: "en-us", rating: 8, text: "typesetting, remaining essentially unchanged.")

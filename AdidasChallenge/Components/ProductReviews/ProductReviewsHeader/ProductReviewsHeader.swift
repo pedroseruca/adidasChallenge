@@ -9,11 +9,17 @@ import Combine
 import SwiftUI
 
 struct ProductReviewsHeader: View {
+    // MARK: Private Properties
+
     private let viewModel: ProductReviewsViewModelProtocol
+
+    // MARK: Lifecycle
 
     init(viewModel: ProductReviewsViewModelProtocol) {
         self.viewModel = viewModel
     }
+
+    // MARK: Public Properties
 
     var body: some View {
         HStack(spacing: 0) {
@@ -30,6 +36,8 @@ struct ProductReviewsHeader: View {
         }
     }
 }
+
+// MARK: SwiftUI Previews
 
 struct ProductReviewsHeader_Previews: PreviewProvider {
     struct MockAdidasAPI: AdidasAPIReviewsProtocol {

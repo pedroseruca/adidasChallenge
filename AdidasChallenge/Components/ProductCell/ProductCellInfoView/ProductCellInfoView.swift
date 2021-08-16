@@ -8,13 +8,18 @@
 import SwiftUI
 
 struct ProductCellInfoView: View {
-    private let viewModel: ProductCellViewModelProtocol
+    // MARK: Private Properties
 
+    private let viewModel: ProductCellViewModelProtocol
     private let padding: CGFloat = 5
+
+    // MARK: Lifecycle
 
     init(viewModel: ProductCellViewModelProtocol) {
         self.viewModel = viewModel
     }
+
+    // MARK: Public Properties
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -32,6 +37,8 @@ struct ProductCellInfoView: View {
         }
     }
 }
+
+// MARK: SwiftUI Previews
 
 struct ProductCellInfoView_Previews: PreviewProvider {
     static var previews: some View {

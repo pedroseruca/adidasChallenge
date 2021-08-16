@@ -9,11 +9,17 @@ import Combine
 import SwiftUI
 
 struct ProductReviewsContent: View {
+    // MARK: Private Properties
+
     private let viewModel: ProductReviewsViewModelProtocol
+
+    // MARK: Lifecycle
 
     init(viewModel: ProductReviewsViewModelProtocol) {
         self.viewModel = viewModel
     }
+
+    // MARK: Public Properties
 
     var body: some View {
         if viewModel.ratingsCountValue == 0 {

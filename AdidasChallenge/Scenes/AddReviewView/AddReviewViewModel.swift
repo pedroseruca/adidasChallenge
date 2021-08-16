@@ -8,9 +8,16 @@
 import Combine
 
 class AddReviewViewModel {
+    // MARK: Private Properties
+
     private let product: Product
     private let adidasAPI: AdidasAPIReviewsProtocol
     private let onReviewSubmitted: () -> Void
+
+    private let onSuccessSubmit: PassthroughSubject<Void, Never> = .init()
+    private var subscriptions: Set<AnyCancellable> = .init()
+
+    // MARK: Lifecycle
 
     init(product: Product,
          adidasAPI: AdidasAPIReviewsProtocol,
@@ -20,6 +27,8 @@ class AddReviewViewModel {
         self.onReviewSubmitted = onReviewSubmitted
     }
 
+    // MARK: Public Properties
+
     let navigationTitle = "Add review"
     private(set) lazy var titleLabel = "Rate " + product.name
     let shareOpinionLabel = "Share your opinion"
@@ -27,8 +36,7 @@ class AddReviewViewModel {
 
     var onSuccessSubmitPublisher: AnyPublisher<Void, Never> { onSuccessSubmit.eraseToAnyPublisher() }
 
-    private let onSuccessSubmit: PassthroughSubject<Void, Never> = .init()
-    private var subscriptions: Set<AnyCancellable> = .init()
+    // MARK: Public Methods
 
     func buttonPressed(rating: Int, text: String) {
         let review = ProductReview(productId: product.id,

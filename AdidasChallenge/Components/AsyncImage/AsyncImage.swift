@@ -14,11 +14,14 @@ struct AsyncImage<Placeholder, ImageView, NoImageView>: View where
     Placeholder: View,
     ImageView: View,
     NoImageView: View {
-    @ObservedObject private var viewModel: AsyncImageViewModel
+    // MARK: Private Properties
 
+    @ObservedObject private var viewModel: AsyncImageViewModel
     private let placeholderBuilder: () -> Placeholder
     private let imageBuilder: (UIImage) -> ImageView
     private let errorBuilder: (Error) -> NoImageView
+
+    // MARK: Lifecycle
 
     init(viewModel: AsyncImageViewModel,
          @ViewBuilder placeholder: @escaping () -> Placeholder,
@@ -30,12 +33,9 @@ struct AsyncImage<Placeholder, ImageView, NoImageView>: View where
         errorBuilder = error
     }
 
-    var body: some View {
-        content
-            .onAppear { self.viewModel.load() }
-    }
+    // MARK: Public Properties
 
-    private var content: some View {
+    var body: some View {
         Group {
             switch viewModel.state {
             case .initial,
@@ -47,8 +47,11 @@ struct AsyncImage<Placeholder, ImageView, NoImageView>: View where
                 imageBuilder(image)
             }
         }
+        .onAppear { self.viewModel.load() }
     }
 }
+
+// MARK: SwiftUI Previews
 
 struct ProductImage_Previews: PreviewProvider {
     class MockImageLoader: ImageLoaderProtocol {

@@ -9,6 +9,8 @@ import Combine
 import Foundation
 
 class ProductListViewModel: ObservableObject {
+    // MARK: Private Properties
+
     private let adidasAPI: AdidasAPIProductsProtocol
     private let factory: ProductCellFactory & ProductDetailFactory
 
@@ -18,6 +20,10 @@ class ProductListViewModel: ObservableObject {
     private let noProductsText = "There is no products on our shop yet."
     private let noFilteredProductsText = "There is no products for that search. \nTry another word."
 
+    private var subscriptions: Set<AnyCancellable> = .init()
+
+    // MARK: Lifecycle
+
     init(adidasAPI: AdidasAPIProductsProtocol,
          factory: ProductCellFactory & ProductDetailFactory) {
         self.adidasAPI = adidasAPI
@@ -25,10 +31,13 @@ class ProductListViewModel: ObservableObject {
         updateFilteredProducts()
     }
 
+    // MARK: Public Properties
+
     @Published var models: [ProductListModel] = []
     let navigationTitle = "Search"
     private(set) lazy var noProductsMessage: String? = products.isEmpty ? noProductsText : nil
-    private var subscriptions: Set<AnyCancellable> = .init()
+
+    // MARK: Public Methods
 
     func viewDidAppear() {
         adidasAPI
@@ -56,6 +65,8 @@ class ProductListViewModel: ObservableObject {
         }
     }
 
+    // MARK: Private Methods
+
     private func productCellViewModel(for product: Product) -> ProductCellViewModelProtocol {
         factory.makeProductCellViewModel(for: product)
     }
@@ -79,6 +90,8 @@ class ProductListViewModel: ObservableObject {
         updateFilteredProducts()
     }
 }
+
+// MARK: Product search extension
 
 private extension Product {
     func search(on paths: [KeyPath<Product, String>], for searchText: String) -> Bool {

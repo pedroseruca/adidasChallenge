@@ -9,11 +9,14 @@ import Combine
 import SwiftUI
 
 class AsyncImageViewModel: ObservableObject {
+    // MARK: Private Properties
+
     private var imageLoader: ImageLoaderProtocol
     private var imageWidth: Int?
 
-    @Published private(set) var state: ImageLoaderState = .initial
     private var cancellable: AnyCancellable?
+
+    // MARK: Lifecycle
 
     init(imageLoader: ImageLoaderProtocol,
          imageWidth: Int? = nil) {
@@ -28,6 +31,12 @@ class AsyncImageViewModel: ObservableObject {
                     self?.state = state
                 }
     }
+
+    // MARK: Public Properties
+
+    @Published private(set) var state: ImageLoaderState = .initial
+
+    // MARK: Public Methods
 
     func load() {
         imageLoader.load(with: imageWidth)

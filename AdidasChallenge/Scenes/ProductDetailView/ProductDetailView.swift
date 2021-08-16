@@ -9,11 +9,17 @@ import Combine
 import SwiftUI
 
 struct ProductDetailView: View {
+    // MARK: Private Properties
+
     @ObservedObject private var viewModel: ProductDetailViewModel
+
+    // MARK: Lifecycle
 
     init(viewModel: ProductDetailViewModel) {
         self.viewModel = viewModel
     }
+
+    // MARK: Public Properties
 
     var body: some View {
         GeometryReader { geometry in
@@ -49,6 +55,8 @@ struct ProductDetailView: View {
         }
     }
 }
+
+// MARK: SwiftUI Previews
 
 struct ProductDetailView_Previews: PreviewProvider {
     static var previews: some View {

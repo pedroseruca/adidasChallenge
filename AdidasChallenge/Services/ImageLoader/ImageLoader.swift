@@ -14,15 +14,23 @@ protocol ImageLoaderProtocol {
 }
 
 class ImageLoader: ImageLoaderProtocol {
-    var statePublisher: Published<ImageLoaderState>.Publisher { $state }
+    // MARK: Private Properties
 
     @Published private var state: ImageLoaderState = .initial
     private let urlString: String
     private var cancellable: AnyCancellable?
 
+    // MARK: Lifecycle
+
     init(for urlString: String) {
         self.urlString = urlString
     }
+
+    // MARK: Public Properties
+
+    var statePublisher: Published<ImageLoaderState>.Publisher { $state }
+
+    // MARK: Public Methods
 
     func load(with imageWidth: Int?) {
         if state != .initial { return }
@@ -52,6 +60,8 @@ class ImageLoader: ImageLoaderProtocol {
                 }
             })
     }
+
+    // MARK: Private Methods
 
     private func transformUrl(with imageWidth: Int?) -> URL? {
         guard let imageWidth = imageWidth else { return URL(string: urlString) }

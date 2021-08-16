@@ -8,7 +8,12 @@
 import SwiftUI
 
 struct PrimaryButtonStyle: ButtonStyle {
+    // MARK: Public Properties
+
     let color: Color
+
+    // MARK: Public Methods
+
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .padding(10)

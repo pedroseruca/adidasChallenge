@@ -18,7 +18,11 @@ protocol ServiceManagerProtocol {
 }
 
 final class ServiceManager: ServiceManagerProtocol {
-    let session: URLSession
+    // MARK: Private Properties
+
+    private let session: URLSession
+
+    // MARK: Lifecycle
 
     init(configuration: URLSessionConfiguration) {
         session = URLSession(configuration: configuration)
@@ -27,6 +31,8 @@ final class ServiceManager: ServiceManagerProtocol {
     convenience init() {
         self.init(configuration: .default)
     }
+
+    // MARK: Public Methods
 
     func execute<T>(request: URLRequest,
                     decodingType: T.Type,
@@ -46,12 +52,14 @@ final class ServiceManager: ServiceManagerProtocol {
             .eraseToAnyPublisher()
     }
 
+    // MARK: Private Methods
+
     private func dataTaskPublisher(for request: URLRequest) -> Publishers.TryMap<URLSession.DataTaskPublisher, URLSession.DataTaskPublisher.Output> {
         session.dataTaskPublisher(for: request)
             .tryMap { output in
                 guard
                     let response = output.response as? HTTPURLResponse,
-                    200...300 ~= response.statusCode else {
+                    200 ... 300 ~= response.statusCode else {
                     throw Constants.Network.HTTPError.statusCode
                 }
                 return output
