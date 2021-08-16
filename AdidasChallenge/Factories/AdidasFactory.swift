@@ -13,6 +13,7 @@ class AdidasFactory {
     private let serviceManager: ServiceManagerProtocol
 
     private lazy var adidasAPI = AdidasAPI(serviceManager: serviceManager)
+    private lazy var imageCache = ImageCache()
 
     // MARK: Lifecycle
 
@@ -23,7 +24,7 @@ class AdidasFactory {
     // MARK: Private Methods
 
     private func makeImageLoader(for product: Product) -> ImageLoaderProtocol {
-        ImageLoader(for: product.imgUrl)
+        ImageLoader(for: product.imgUrl, cache: imageCache)
     }
 }
 

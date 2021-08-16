@@ -53,6 +53,7 @@
 		12C683D126C9D7AC00C1597E /* AddReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C683D026C9D7AC00C1597E /* AddReviewView.swift */; };
 		12C683D326C9E0D800C1597E /* AddReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C683D226C9E0D800C1597E /* AddReviewViewModel.swift */; };
 		12C683D526C9EDC900C1597E /* ProductReviewsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C683D426C9EDC900C1597E /* ProductReviewsFactory.swift */; };
+		12C683D826CA87BE00C1597E /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C683D726CA87BE00C1597E /* ImageCache.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +126,7 @@
 		12C683D026C9D7AC00C1597E /* AddReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewView.swift; sourceTree = "<group>"; };
 		12C683D226C9E0D800C1597E /* AddReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewViewModel.swift; sourceTree = "<group>"; };
 		12C683D426C9EDC900C1597E /* ProductReviewsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductReviewsFactory.swift; sourceTree = "<group>"; };
+		12C683D726CA87BE00C1597E /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,8 +261,9 @@
 		12C6836F26C28E0000C1597E /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				12C683B126C8534000C1597E /* Network */,
+				12C683D626CA87A500C1597E /* ImageCache */,
 				12C6837026C28E0600C1597E /* ImageLoader */,
+				12C683B126C8534000C1597E /* Network */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -434,6 +437,14 @@
 			path = AddReviewView;
 			sourceTree = "<group>";
 		};
+		12C683D626CA87A500C1597E /* ImageCache */ = {
+			isa = PBXGroup;
+			children = (
+				12C683D726CA87BE00C1597E /* ImageCache.swift */,
+			);
+			path = ImageCache;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -605,6 +616,7 @@
 				12C683B926C9178B00C1597E /* Endpoint.swift in Sources */,
 				12C683B426C8542E00C1597E /* ServiceManager.swift in Sources */,
 				12C683C926C9BF1B00C1597E /* ProductCellFactory.swift in Sources */,
+				12C683D826CA87BE00C1597E /* ImageCache.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

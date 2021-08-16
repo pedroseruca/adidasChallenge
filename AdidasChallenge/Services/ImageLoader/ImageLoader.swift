@@ -18,12 +18,14 @@ class ImageLoader: ImageLoaderProtocol {
 
     @Published private var state: ImageLoaderState = .initial
     private let urlString: String
+    private var cache: ImageCacheProtocol?
     private var cancellable: AnyCancellable?
 
     // MARK: Lifecycle
 
-    init(for urlString: String) {
+    init(for urlString: String, cache: ImageCacheProtocol? = nil) {
         self.urlString = urlString
+        self.cache = cache
     }
 
     // MARK: Public Properties
@@ -38,8 +40,12 @@ class ImageLoader: ImageLoaderProtocol {
             state = .failure(ImageLoaderError.urlNotValid)
             return
         }
-
-        // TODO: check cache before start request
+        
+        if let image = cache?[url.absoluteString] {
+            state = .success(image)
+            return
+        }
+        
         state = .loading
         cancellable = URLSession.shared.dataTaskPublisher(for: url)
             .map { UIImage(data: $0.data) }
@@ -55,6 +61,7 @@ class ImageLoader: ImageLoaderProtocol {
             }, receiveValue: { [weak self] image in
                 if let image = image {
                     self?.state = .success(image)
+                    self?.cache?[url.absoluteString] = image
                 } else {
                     self?.state = .failure(ImageLoaderError.couldntTransformData)
                 }
