@@ -32,7 +32,7 @@ struct ProductListView: View {
                 if viewModel.showNoProductsMessage {
                     Text(viewModel.noProductsMessage)
                 }
-                
+
                 if let models = viewModel.models {
                     ScrollView {
                         LazyVStack {
@@ -51,7 +51,18 @@ struct ProductListView: View {
                         .scaleEffect(Constants.Style.ProductListView.progressViewScale)
                 }
                 Spacer()
-            }.navigationBarTitle(Text(viewModel.navigationTitle))
+            }
+            .navigationBarTitle(Text(viewModel.navigationTitle))
+            .alert(isPresented: $viewModel.showingAlert) {
+                Alert(title: Text("Opps!!"),
+                      message: Text("There's been an error while requesting information."),
+                      primaryButton: .default(
+                          Text("Try again"),
+                          action: {
+                              viewModel.retryAlertButtonPressed()
+                          }),
+                      secondaryButton: .default(Text("Cancel")))
+            }
         }.onAppear {
             viewModel.viewDidAppear()
         }

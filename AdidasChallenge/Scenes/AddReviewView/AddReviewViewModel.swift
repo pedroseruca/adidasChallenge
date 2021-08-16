@@ -7,7 +7,7 @@
 
 import Combine
 
-class AddReviewViewModel {
+class AddReviewViewModel: ObservableObject {
     // MARK: Private Properties
 
     private let product: Product
@@ -34,11 +34,23 @@ class AddReviewViewModel {
     let shareOpinionLabel = "Share your opinion"
     let buttonTitle = "Submit"
 
+    @Published var showingAlert = false
     var onSuccessSubmitPublisher: AnyPublisher<Void, Never> { onSuccessSubmit.eraseToAnyPublisher() }
 
     // MARK: Public Methods
+    
+    func retryAlertButtonPressed(rating: Int, text: String) {
+        showingAlert = false
+        postReview(rating: rating, text: text)
+    }
 
     func buttonPressed(rating: Int, text: String) {
+        postReview(rating: rating, text: text)
+    }
+    
+    // MARK: Private Methods
+    
+    func postReview(rating: Int, text: String) {
         let review = ProductReview(productId: product.id,
                                    locale: "en-us",
                                    rating: rating,
@@ -46,8 +58,13 @@ class AddReviewViewModel {
         adidasAPI
             .postReview(for: product.id,
                         review: review)
-            .sink { _ in
-
+            .sink { [weak self] error in
+                switch error {
+                case .failure(_):
+                    self?.showingAlert = true
+                default:
+                    break
+                }
             } receiveValue: { [weak self] _ in
                 self?.onReviewSubmitted()
                 self?.onSuccessSubmit.send()

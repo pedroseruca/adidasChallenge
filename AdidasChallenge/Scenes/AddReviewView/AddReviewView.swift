@@ -15,7 +15,7 @@ struct AddReviewView: View {
     
     // MARK: Private Properties
 
-    private var viewModel: AddReviewViewModel
+    @ObservedObject private var viewModel: AddReviewViewModel
 
     @Environment(\.presentationMode) private var presentation
     private var ratingRound: Int { Int(rating) }
@@ -61,6 +61,16 @@ struct AddReviewView: View {
         .padding()
         .navigationBarTitleDisplayMode(.large)
         .navigationTitle(viewModel.navigationTitle)
+        .alert(isPresented: $viewModel.showingAlert) {
+            Alert(title: Text("Opps!!"),
+                  message: Text("There's been an error while requesting information."),
+                  primaryButton: .default(
+                      Text("Try again"),
+                      action: {
+                          viewModel.retryAlertButtonPressed(rating: ratingRound, text: text)
+                      }),
+                  secondaryButton: .default(Text("Cancel")))
+        }
         .onReceive(viewModel.onSuccessSubmitPublisher) { _ in
             self.presentation.wrappedValue.dismiss()
         }

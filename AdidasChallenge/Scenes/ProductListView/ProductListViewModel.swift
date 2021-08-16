@@ -37,6 +37,8 @@ class ProductListViewModel: ObservableObject {
             showNoProductsMessage = models?.isEmpty ?? false
         }
     }
+    @Published var showingAlert = false
+    
     let navigationTitle = "Search"
     private(set) var showNoProductsMessage = false
     private(set) lazy var noProductsMessage: String = noProductsText
@@ -44,14 +46,12 @@ class ProductListViewModel: ObservableObject {
     // MARK: Public Methods
 
     func viewDidAppear() {
-        adidasAPI
-            .getProducts()
-            .sink(receiveCompletion: { error in
-                print(error)
-            }, receiveValue: { [weak self] response in
-                self?.products = response
-                self?.resetFilteredProducts()
-            }).store(in: &subscriptions)
+        requestProducts()
+    }
+    
+    func retryAlertButtonPressed() {
+        showingAlert = false
+        requestProducts()
     }
 
     func searchProduct(for searchText: String) {
@@ -69,6 +69,22 @@ class ProductListViewModel: ObservableObject {
     }
 
     // MARK: Private Methods
+    
+    private func requestProducts() {
+        adidasAPI
+            .getProducts()
+            .sink(receiveCompletion: { [weak self] error in
+                switch error {
+                case .failure(_):
+                    self?.showingAlert = true
+                default:
+                    break
+                }
+            }, receiveValue: { [weak self] response in
+                self?.products = response
+                self?.resetFilteredProducts()
+            }).store(in: &subscriptions)
+    }
 
     private func productCellViewModel(for product: Product) -> ProductCellViewModelProtocol {
         factory.makeProductCellViewModel(for: product)

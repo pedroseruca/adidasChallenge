@@ -32,8 +32,9 @@ class ProductDetailViewModel: ObservableObject {
 
     // MARK: Public Properties
 
-    @Published var reviewsViewModel: ProductReviewsViewModelProtocol? = nil
-
+    @Published private(set) var reviewsViewModel: ProductReviewsViewModelProtocol? = nil
+    @Published var showingAlert = true
+    
     private(set) lazy var name = product.name.uppercased()
     private(set) lazy var description = product.description
     private(set) lazy var price = "\(product.price) " + product.currency
@@ -46,6 +47,11 @@ class ProductDetailViewModel: ObservableObject {
     }
 
     func viewDidAppear() {
+        updateReviews()
+    }
+    
+    func retryAlertButtonPressed() {
+        showingAlert = false
         updateReviews()
     }
 
@@ -62,8 +68,13 @@ class ProductDetailViewModel: ObservableObject {
                         self?.updateReviews()
                     })
             }
-            .sink { error in
-                print(error)
+            .sink { [weak self] error in
+                switch error {
+                case .failure(_):
+                    self?.showingAlert = true
+                default:
+                    break
+                }
             } receiveValue: { [weak self] response in
                 self?.reviewsViewModel = response
             }.store(in: &subscriptions)

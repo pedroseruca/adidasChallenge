@@ -54,7 +54,18 @@ struct ProductDetailView: View {
             }
             .frame(maxHeight: .infinity, alignment: .top)
             .navigationBarTitleDisplayMode(.inline)
-        }.onAppear {
+        }
+        .alert(isPresented: $viewModel.showingAlert) {
+            Alert(title: Text("Opps!!"),
+                  message: Text("There's been an error while requesting information."),
+                  primaryButton: .default(
+                      Text("Try again"),
+                      action: {
+                          viewModel.retryAlertButtonPressed()
+                      }),
+                  secondaryButton: .default(Text("Cancel")))
+        }
+        .onAppear {
             viewModel.viewDidAppear()
         }
     }
