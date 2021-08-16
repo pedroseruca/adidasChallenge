@@ -61,7 +61,6 @@ struct ProductImage_Previews: PreviewProvider {
 
         func load(with imageWidth: Int?) {
             let image = UIImage(named: "Logo")!
-            print(image)
             state = .success(image)
         }
     }

@@ -10,8 +10,7 @@
 		12C6833726C1ABF900C1597E /* AdidasChallengeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C6833626C1ABF900C1597E /* AdidasChallengeApp.swift */; };
 		12C6833B26C1ABFB00C1597E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12C6833A26C1ABFB00C1597E /* Assets.xcassets */; };
 		12C6833E26C1ABFB00C1597E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12C6833D26C1ABFB00C1597E /* Preview Assets.xcassets */; };
-		12C6834926C1ABFC00C1597E /* AdidasChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C6834826C1ABFC00C1597E /* AdidasChallengeTests.swift */; };
-		12C6835426C1ABFC00C1597E /* AdidasChallengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C6835326C1ABFC00C1597E /* AdidasChallengeUITests.swift */; };
+		12C6834926C1ABFC00C1597E /* ProductListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C6834826C1ABFC00C1597E /* ProductListViewModelTests.swift */; };
 		12C6836326C1E0C500C1597E /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C6836226C1E0C400C1597E /* Product.swift */; };
 		12C6836526C1E28200C1597E /* ProductReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C6836426C1E28200C1597E /* ProductReview.swift */; };
 		12C6836626C1E42A00C1597E /* ProductListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C6833826C1ABF900C1597E /* ProductListView.swift */; };
@@ -54,6 +53,13 @@
 		12C683D326C9E0D800C1597E /* AddReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C683D226C9E0D800C1597E /* AddReviewViewModel.swift */; };
 		12C683D526C9EDC900C1597E /* ProductReviewsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C683D426C9EDC900C1597E /* ProductReviewsFactory.swift */; };
 		12C683D826CA87BE00C1597E /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C683D726CA87BE00C1597E /* ImageCache.swift */; };
+		12C683DB26CA96D700C1597E /* MockAdidasAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C683DA26CA96D700C1597E /* MockAdidasAPI.swift */; };
+		12C683DD26CA96E800C1597E /* MockAdidasFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C683DC26CA96E800C1597E /* MockAdidasFactory.swift */; };
+		12C683DF26CAA2AD00C1597E /* MockProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C683DE26CAA2AD00C1597E /* MockProducts.swift */; };
+		12C683E126CAA48600C1597E /* MockImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C683E026CAA48600C1597E /* MockImageLoader.swift */; };
+		12C683E326CAA88400C1597E /* ProductDetailViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C683E226CAA88400C1597E /* ProductDetailViewModelTest.swift */; };
+		12C683E526CAAC5C00C1597E /* GenericError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C683E426CAAC5C00C1597E /* GenericError.swift */; };
+		12C683E726CAACA600C1597E /* MockProductReviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C683E626CAACA600C1597E /* MockProductReviews.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,11 +87,9 @@
 		12C6833D26C1ABFB00C1597E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		12C6833F26C1ABFB00C1597E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		12C6834426C1ABFC00C1597E /* AdidasChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdidasChallengeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		12C6834826C1ABFC00C1597E /* AdidasChallengeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdidasChallengeTests.swift; sourceTree = "<group>"; };
+		12C6834826C1ABFC00C1597E /* ProductListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewModelTests.swift; sourceTree = "<group>"; };
 		12C6834A26C1ABFC00C1597E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		12C6834F26C1ABFC00C1597E /* AdidasChallengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdidasChallengeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		12C6835326C1ABFC00C1597E /* AdidasChallengeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdidasChallengeUITests.swift; sourceTree = "<group>"; };
-		12C6835526C1ABFC00C1597E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		12C6836226C1E0C400C1597E /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		12C6836426C1E28200C1597E /* ProductReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductReview.swift; sourceTree = "<group>"; };
 		12C6836D26C1F4A900C1597E /* AsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImage.swift; sourceTree = "<group>"; };
@@ -127,6 +131,13 @@
 		12C683D226C9E0D800C1597E /* AddReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewViewModel.swift; sourceTree = "<group>"; };
 		12C683D426C9EDC900C1597E /* ProductReviewsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductReviewsFactory.swift; sourceTree = "<group>"; };
 		12C683D726CA87BE00C1597E /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		12C683DA26CA96D700C1597E /* MockAdidasAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAdidasAPI.swift; sourceTree = "<group>"; };
+		12C683DC26CA96E800C1597E /* MockAdidasFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAdidasFactory.swift; sourceTree = "<group>"; };
+		12C683DE26CAA2AD00C1597E /* MockProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockProducts.swift; sourceTree = "<group>"; };
+		12C683E026CAA48600C1597E /* MockImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockImageLoader.swift; sourceTree = "<group>"; };
+		12C683E226CAA88400C1597E /* ProductDetailViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewModelTest.swift; sourceTree = "<group>"; };
+		12C683E426CAAC5C00C1597E /* GenericError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericError.swift; sourceTree = "<group>"; };
+		12C683E626CAACA600C1597E /* MockProductReviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockProductReviews.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,7 +170,6 @@
 			children = (
 				12C6833526C1ABF900C1597E /* AdidasChallenge */,
 				12C6834726C1ABFC00C1597E /* AdidasChallengeTests */,
-				12C6835226C1ABFC00C1597E /* AdidasChallengeUITests */,
 				12C6833426C1ABF900C1597E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -200,19 +210,12 @@
 		12C6834726C1ABFC00C1597E /* AdidasChallengeTests */ = {
 			isa = PBXGroup;
 			children = (
-				12C6834826C1ABFC00C1597E /* AdidasChallengeTests.swift */,
 				12C6834A26C1ABFC00C1597E /* Info.plist */,
+				12C683D926CA96C500C1597E /* Mocks */,
+				12C683E226CAA88400C1597E /* ProductDetailViewModelTest.swift */,
+				12C6834826C1ABFC00C1597E /* ProductListViewModelTests.swift */,
 			);
 			path = AdidasChallengeTests;
-			sourceTree = "<group>";
-		};
-		12C6835226C1ABFC00C1597E /* AdidasChallengeUITests */ = {
-			isa = PBXGroup;
-			children = (
-				12C6835326C1ABFC00C1597E /* AdidasChallengeUITests.swift */,
-				12C6835526C1ABFC00C1597E /* Info.plist */,
-			);
-			path = AdidasChallengeUITests;
 			sourceTree = "<group>";
 		};
 		12C6836126C1E09B00C1597E /* Models */ = {
@@ -445,6 +448,19 @@
 			path = ImageCache;
 			sourceTree = "<group>";
 		};
+		12C683D926CA96C500C1597E /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				12C683E426CAAC5C00C1597E /* GenericError.swift */,
+				12C683DA26CA96D700C1597E /* MockAdidasAPI.swift */,
+				12C683DC26CA96E800C1597E /* MockAdidasFactory.swift */,
+				12C683E026CAA48600C1597E /* MockImageLoader.swift */,
+				12C683E626CAACA600C1597E /* MockProductReviews.swift */,
+				12C683DE26CAA2AD00C1597E /* MockProducts.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -624,7 +640,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				12C6834926C1ABFC00C1597E /* AdidasChallengeTests.swift in Sources */,
+				12C683E126CAA48600C1597E /* MockImageLoader.swift in Sources */,
+				12C683DB26CA96D700C1597E /* MockAdidasAPI.swift in Sources */,
+				12C683E326CAA88400C1597E /* ProductDetailViewModelTest.swift in Sources */,
+				12C683E726CAACA600C1597E /* MockProductReviews.swift in Sources */,
+				12C6834926C1ABFC00C1597E /* ProductListViewModelTests.swift in Sources */,
+				12C683DD26CA96E800C1597E /* MockAdidasFactory.swift in Sources */,
+				12C683DF26CAA2AD00C1597E /* MockProducts.swift in Sources */,
+				12C683E526CAAC5C00C1597E /* GenericError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -632,7 +655,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				12C6835426C1ABFC00C1597E /* AdidasChallengeUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
