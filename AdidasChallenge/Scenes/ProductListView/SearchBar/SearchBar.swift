@@ -9,15 +9,14 @@ import SwiftUI
 
 // info: This is mostly code from StackOverflow. For that reason, I keep it as it was, without moving the style or VM.
 struct SearchBar: View {
-    // TODO: leak here
-    var onSearchText: (String) -> Void
-
     // MARK: Private Properties
 
     @State private var searchText: String = ""
     @State private var showCancelButton: Bool = false
 
     // MARK: Public Properties
+
+    var onSearchText: (String) -> Void
 
     var body: some View {
         HStack {
